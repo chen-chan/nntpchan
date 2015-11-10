@@ -1,22 +1,23 @@
+<!doctype html>
 <html>
   <head>
-    <title> try again </title>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="{{prefix}}static/site.css" />
-    <link rel="stylesheet" href="{{prefix}}static/user.css" />
+    <title>try again</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{{prefix}}static/site.css">
+    <link rel="stylesheet" href="{{prefix}}static/user.css">
   </head>
-  <body>    
+  <body>
     <form enctype="multipart/form-data" name="post" method="post">
     {{#attachment}}
-      <input type="hidden" name="attachment_data" value="{{attachment}}" />
-      <input type="hidden" name="attachment_filename" value="{{attachment_filename}}" />
-      <input type="hidden" name="attachment_mime" value="{{attachment_type}}" />
+      <input type="hidden" name="attachment_data" value="{{attachment}}">
+      <input type="hidden" name="attachment_filename" value="{{attachment_filename}}">
+      <input type="hidden" name="attachment_mime" value="{{attachment_type}}">
     {{/attachment}}
-    <input type="hidden" name="reference" value="{{reference}}" />
-    <input type="hidden" name="name" value="{{name}}" />
-    <input type="hidden" name="subject" value="{{subject}}" />
-    <input type="hidden" name="captcha_id" value="{{captcha_id}}" />
-    <input type="hidden" name="message" value="{{message}}" />
+    <input type="hidden" name="reference" value="{{reference}}">
+    <input type="hidden" name="name" value="{{name}}">
+    <input type="hidden" name="subject" value="{{subject}}">
+    <input type="hidden" name="captcha_id" value="{{captcha_id}}">
+    <input type="hidden" name="message" value="{{message}}">
     <div id="postform-outer">
       <div id="postform-inner">
         <div>{{fail_message}}</div>
@@ -27,7 +28,7 @@
                 Captcha
               </th>
               <td>
-                <img id="captcha_img" src="{{prefix}}captcha/{{captcha_id}}.png" alt="captcha" />
+                <img id="captcha_img" src="{{prefix}}captcha/{{captcha_id}}.png" alt="captcha">
               </td>
             </tr>
             <tr>
@@ -35,8 +36,8 @@
                 Solution
               </th>
               <td>
-                <input type="text" name="captcha" />
-                <input type="submit" value="Post" class="button" />
+                <input type="text" name="captcha">
+                <input type="submit" value="Post" class="button">
               </td>
             </tr>
           </tbody>

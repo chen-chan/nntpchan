@@ -5,12 +5,12 @@
   - frontend ( the name of the frontend )
   - prefix ( the site's prefix )
 }}
-
+<!doctype html>
 <html>
   <head>
     <link rel="stylesheet" href="{{prefix}}static/site.css"></link>
     <link rel="stylesheet" href="{{prefix}}static/user.css"></link>
-    <title> {{frontend}} board list </title>
+    <title>{{frontend}} board list</title>
   </head>
   <body>
     <center>
@@ -24,7 +24,7 @@
               <th> Post per Day </th>
               <th> Total </th>
             </tr>
-            {{# graph}}
+            {{#graph}}
             <tr>
               <td>
                 <a href="{{prefix}}{{Board}}-0.html">{{Board}}</a>
@@ -39,7 +39,7 @@
                 {{All}}
               </td>
             </tr>
-            {{/ graph}}
+            {{/graph}}
           </tbody>
         </table>
       </div>

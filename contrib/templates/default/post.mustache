@@ -1,26 +1,33 @@
-<fieldset>
-  {{#IsI2P}}
-    <img src="{{Prefix}}static/i2p.png" title="post from i2p" />
-  {{/IsI2P}}
-  {{#IsTor}}
-    <img src="{{Prefix}}static/tor.png" title="post from tor" />
-  {{/IsTor}}
-  {{#IsClearnet}}
-    <img src="{{Prefix}}static/clearnet.png" title="post from clearnet" />
-  {{/IsClearnet}}
-  <legend>
-    <span class="subject">{{Subject}}</span> <span class="name">{{Name}}</span> {{Date}}
-    No. <a onclick="nntpchan_backlink('{{ShortHash}}');" title="{{MessageID}}">{{ShortHash}}</a>
-    <a href="{{PostURL}}">[reply]</a> <span class="tripcode">{{{Pubkey}}}</span><br />
-  </legend>
-  {{#Attachments}}
-    <figure>
-    <figcaption>
-    <a target="_blank" href="{{Source}}" title="{{Filename}}"><img src="{{Thumbnail}}" alt="{{Filename}}" /></a>
-    </figcaption>
-    </figure>
-  {{/Attachments}}
-  <label class="post_body">
-    {{{RenderBody}}}
-  </label> 
-</fieldset>
+{{!
+ double bracket things:
+  - PostHash
+  - MessageID
+  - ShortHash
+  - Date
+  - Name
+  - Subject
+  - Pubkey
+  - #Attachements
+    - Filename
+    - Source
+    - Thumbnail
+  - #IsI2P
+  - #IsTor
+  - #IsClearnet
+  - #Sage (both # and ^)
+
+ triple bracket things:
+  - RenderBody
+}}
+<dt id="{{PostHash}}">
+  <a title="{{MessageID}}"><b>{{ShortHash}}</b></a>
+  {{Date}}
+  {{#IsI2P}}i2p{{/IsI2P}}
+  {{#IsTor}}tor{{/IsTor}}
+  {{#IsClearnet}}clr{{/IsClearnet}}
+  {{Name}}
+  {{Subject}}
+  <a href="{{PostURL}}">[reply]</a>
+  {{{Pubkey}}}
+</dt>
+<dd>{{{RenderBody}}}</dd>

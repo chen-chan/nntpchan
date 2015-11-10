@@ -4,6 +4,7 @@
  - prefix ( the site's prefix )
 
 }}
+<!doctype html>
 <html>
   <head>
     <link rel="stylesheet" href="{{prefix}}static/site.css"></link>
@@ -12,69 +13,53 @@
     <title> nntpchan mod page </title>
   </head>
   <body>
+    <b>post actions</b>
     <div>
-      <div> post actions </div>
-      <hr />
-      <div>
-        <label for="nntpchan_mod_target">target</label>
-        <input id="nntpchan_mod_target" type="text" />
-      </div>
-      <div>
-        <button onclick="nntpchan_ban()">ban (url)</button>
-        <button onclick="nntpchan_delete()">delete (url)</button>
-        <button onclick="nntpchan_unban()">unban (ip)</button>
-      </div>
+      <label for="nntpchan_mod_target">target:</label>
+      <input id="nntpchan_mod_target" type="text">
     </div>
-    <hr />
     <div>
-      <div> key actions </div>
-      <div>
-        <label for="nntpchan_board_target">pubkey:</label>
-        <input type="text" id="nntpchan_key_target" />
-      </div>
-      <div>
-        <button onclick="nntpchan_key_add()">add key</button>
-        <button onclick="nntpchan_key_del()">remove key</button>
-      </div>
+      <button onclick="nntpchan_ban()">ban (url)</button>
+      <button onclick="nntpchan_delete()">delete (url)</button>
+      <button onclick="nntpchan_unban()">unban (ip)</button>
     </div>
-    <hr />
+    <hr>
+    <b>key actions</b>
     <div>
-      <div> board actions </div>
-      <div>
-        <label for="nntpchan_board_target">board name:</label>
-        <input type="text" id="nntpchan_board_target" />
-      </div>
-      <div>
-        <button onclick="nntpchan_admin_board('frontend.add')">add board</button>
-      </div>
-      <div>
-        <button onclick="nntpchan_admin_board('frontend.regen')">regenerate</button>
-      </div>
-      <div>    
-        <button onclick="nntpchan_admin_board('frontend.ban')">ban</button>
-        <button onclick="nntpchan_admin_board('frontend.unban')">unban</button>
-      </div>
-      <div>
-        <button onclick="nntpchan_admin_board('frontend.nuke')">nuke</button>
-      </div>
+      <label for="nntpchan_board_target">pubkey:</label>
+      <input type="text" id="nntpchan_key_target">
     </div>
-    <hr />
     <div>
-      <div>
-        lightweight actions
-      </div>
-      <div>
-        <button onclick="nntpchan_admin('template.reload')">reload all templates</button>
-      </div>
+      <button onclick="nntpchan_key_add()">add key</button>
+      <button onclick="nntpchan_key_del()">remove key</button>
     </div>
-    <hr />
+    <hr>
+    <b>board actions</b>
     <div>
-      <label>very load heavy actions, use with care</label>
-      <div>
-        <button onclick="nntpchan_admin('frontend.regen')">regenerate all pages</button>
-        <button onclick="nntpchan_admin('thumbnail.regen')">regenerate all thumbnails</button>
-      </div>
-    </div>  
+      <label for="nntpchan_board_target">board name:</label>
+      <input type="text" id="nntpchan_board_target">
+    </div>
+    <div>
+      <button onclick="nntpchan_admin_board('frontend.regen')">regenerate</button>
+    </div>
+    <div>
+      <button onclick="nntpchan_admin_board('frontend.ban')">ban</button>
+      <button onclick="nntpchan_admin_board('frontend.unban')">unban</button>
+    </div>
+    <div>
+      <button onclick="nntpchan_admin_board('frontend.nuke')">nuke</button>
+    </div>
+    <hr>
+    <b>lightweight actions</b>
+    <div>
+      <button onclick="nntpchan_admin('template.reload')">reload all templates</button>
+    </div>
+    <hr>
+    <b>very load heavy actions, use with care</b>
+    <div>
+      <button onclick="nntpchan_admin('frontend.regen')">regenerate all pages</button>
+      <button onclick="nntpchan_admin('thumbnail.regen')">regenerate all thumbnails</button>
+    </div>
     <div id="nntpchan_mod_result"></div>
     <noscript>
       <b>enable js to use the mod panel kthx</b>

@@ -1,15 +1,16 @@
+<!doctype html>
 <html>
   <head>
     <title>create new board</title>
-    <link rel="stylesheet" href="{{prefix}}static/site.css" />
-    <link rel="stylesheet" href="{{prefix}}static/user.css" />
+    <link rel="stylesheet" href="{{prefix}}static/site.css">
+    <link rel="stylesheet" href="{{prefix}}static/user.css">
     <script type="text/javascript" src="{{prefix}}static/newboard.js">
     </script>
   </head>
   <body>
     <p>make your first post</p>
-    <hr />
-    <form action="{{prefix}}post/" enctype="multipart/form-data" name="post" method="post" id="postform" >
+    <hr>
+    <form action="{{prefix}}post/" enctype="multipart/form-data" name="post" method="post" id="postform">
     <div id="postform-outer">
       <div id="postform-inner">
         <table class="postform">
@@ -19,7 +20,7 @@
                 Board Name
               </th>
               <td>
-                <input type="text" name="name" value="" id="boardname" />
+                <input type="text" name="name" value="" id="boardname">
                 <button onclick="createBoard()">Create Board</button>
               </td>
             </tr>
@@ -36,7 +37,7 @@
                 Captcha
               </th>
               <td>
-                <img id="captcha_img" src="{{prefix}}captcha/img" alt="captcha" />
+                <img id="captcha_img" src="{{prefix}}captcha/img" alt="captcha">
               </td>
             </tr>
             <tr>
@@ -44,7 +45,7 @@
                 Solution
               </th>
               <td>
-                <input type="text" name="captcha" />
+                <input type="text" name="captcha">
               </td>
             </tr>
           </tbody>
