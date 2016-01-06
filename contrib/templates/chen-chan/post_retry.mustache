@@ -10,31 +10,10 @@
     <input type="hidden" name="subject" value="{{subject}}">
     <input type="hidden" name="captcha_id" value="{{captcha_id}}">
     <input type="hidden" name="message" value="{{message}}">
-    <div id="postform-outer">
-      <div id="postform-inner">
-        <div>{{fail_message}}</div>
-        <table class="postform">
-          <tbody>
-            <tr>
-              <th>
-                Captcha
-              </th>
-              <td>
-                <img id="captcha_img" src="{{prefix}}captcha/{{captcha_id}}.png" alt="captcha" />
-              </td>
-            </tr>
-            <tr>
-              <th>
-                Solution
-              </th>
-              <td>
-                <input type="text" name="captcha" />
-                <input type="submit" value="Post" class="button" />
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
+    <p>post retry:</p>
+    <p>{{fail_message}}</p>
+    <input type="text" name="captcha" placeholder="captcha">
+    <input type="submit" value="Post" class="button">
+    <img id="captcha_img" src="{{prefix}}captcha/{{captcha_id}}.png" alt="captcha">
   </form>
 </body></html>

@@ -8,8 +8,8 @@
   <a href="/">frontpage</a>
   {{#threads}}
     <hr>
-    <p>posted on <a href="{{{BoardURL}}}">{{OP.Board}}</a></p>
     <dl>
+      <p>posted on <a href="{{{BoardURL}}}">{{OP.Board}}</a></p>
       {{{OP.Truncate.RenderPost}}}
       {{#Truncate.Replies}}
         {{{Truncate.RenderPost}}}

@@ -13,11 +13,11 @@
 }}
 <!doctype html><html><head><link rel="stylesheet" href="/static/chen-chan.css"><title>{{thread.OP.Subject}}</title><script  src="{{thread.Prefix}}static/nntpchan.js"></script></head><body>
   {{{thread.Navbar}}}
-  {{{form}}}
   <dl>
     {{{thread.OP.RenderPost}}}
     {{# thread.Replies}}
       {{{RenderPost}}}
     {{/ thread.Replies}}
   </dl>
+  {{{form}}}
 </body></html>

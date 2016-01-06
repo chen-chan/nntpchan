@@ -1,15 +1,18 @@
 <dt id="{{PostHash}}">
-  <a onclick="nntpchan_backlink('{{ShortHash}}');" title="{{MessageID}}">{{ShortHash}}</a>
+  <a onclick="nntpchan_backlink('{{ShortHash}}');" title="{{MessageID}}">>>{{ShortHash}}</a>
   {{Date}}
   {{#IsI2P}}i2p{{/IsI2P}}{{#IsTor}}tor{{/IsTor}}{{#IsClearnet}}clr{{/IsClearnet}}
-  {{Subject}}
+  <i>{{Subject}}</i>
   {{Name}}
   {{{Pubkey}}}
   <a href="{{PostURL}}">[reply]</a> 
 </dt>
 <dd>
-  {{{RenderBody}}}
   {{#Attachments}}
-    file: <a href="{{Source}}" target="_blank">{{Filename}}</a><br><br>
+    <a href="{{Source}}" title="{{Filename}}" target="_blank" class="thumb">
+      <img src="{{Thumbnail}}" alt="{{Filename}}"><br>
+      <span>{{Filename}}</span>
+    </a>
   {{/Attachments}}
+  {{{RenderBody}}}
 </dd>

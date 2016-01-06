@@ -13,9 +13,7 @@
 }}
 <!doctype html><html><head><link rel="stylesheet" href="/static/chen-chan.css"><title>{{board.Board}}</title></head><body>
   {{{board.Navbar}}}
-  {{{form}}}
   <dl>
-    <hr>
     {{#board.Threads}}
       {{{OP.Truncate.RenderPost}}}
       {{#Truncate.Replies}}
@@ -24,4 +22,5 @@
       <hr>
     {{/board.Threads}}
   </dl>
+  {{{form}}}
 </body></html>

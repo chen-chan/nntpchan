@@ -1,7 +1,10 @@
-body{font-family:monospace}
-dl{max-width:84ch}
-dd{margin-left:4ch;overflow:auto}
-.memearrows{color:green}
-pre{margin: 0 0 0 0}
-table,th,td{border:1px solid gray}
-table {border-collapse:collapse}
+body{font-family:monospace;max-width:82ch;}
+dd{margin-left:2ch;overflow:auto;}
+.memearrows{color:green;}
+pre{margin: 0 0 0 0;}
+table,th,td{border:1px solid gray;}
+table{border-collapse:collapse;}
+.thumb{margin: 0 1ch 1ch 0;float:left;max-width:200px;}
+.thumb span{font-size:x-small;word-wrap: break-word;}
+form *{width:100%;box-sizing:border-box;}
+dt > label{word-break:break-all;}
