@@ -66,6 +66,8 @@ class Article:
         if 'filename' in self.j:
             hdr += 'Mime-Version: 1.0\n'
             hdr += 'Content-Type: multipart/mixed; boundary="{}"\n'.format(self.boundary)
+        else:
+            hdr += 'Content-Type: text/plain; encoding="UTF-8"\n'
         return hdr
 
     def bodyPlain(self):
@@ -81,7 +83,10 @@ class Article:
         msg += '\n'
         msg += self.message() + '\n'
         msg += '--{}\n'.format(self.boundary)
-        msg += 'Content-Type: image/{}\n'.format(self.j['ext'])
+        mtype = 'image'
+        if self.j['ext'] in ['.mp4', '.webm']:
+            mtype = 'video'
+        msg += 'Content-Type: {}/{}\n'.format(mtype, self.j['ext'])
         msg += 'Content-Disposition: form-data; filename="{}{}"; name="import"\n'.format(self.j['filename'], self.j['ext'])
         msg += 'Content-Transfer-Encoding: base64\n'        
         msg += '\n'
