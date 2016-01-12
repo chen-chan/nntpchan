@@ -11,21 +11,21 @@
   - Navbar ( a function that renders the navbar, should not be escaped )
   - Threads ( a list of Thread Models with the last few replies )
 }}
-<!doctype html><html><head>
-  <link rel="stylesheet" href="/static/chen-chan.css">
-  <title>{{board.Board}}</title>
-  <meta name="viewport" content="initial-scale=1.0">
-</head><body>
+<!doctype html><html><head><link rel="stylesheet" href="/static/cards.css"><title>{{board.Board}}</title></head><body>
   {{{board.Navbar}}}
-  <hr>
-  <dl>
+  <div>
     {{#board.Threads}}
-      {{{OP.Truncate.RenderPost}}}
+    <div class="cards thread">
+      <div class="card op">
+        {{{OP.Truncate.RenderPost}}}
+      </div>
       {{#Truncate.Replies}}
-        {{{Truncate.RenderPost}}}
+        <div class="card post">
+          {{{Truncate.RenderPost}}}
+        </div>
       {{/Truncate.Replies}}
-      <hr>
+    </div>
     {{/board.Threads}}
-  </dl>
+  </div>
   {{{form}}}
 </body></html>

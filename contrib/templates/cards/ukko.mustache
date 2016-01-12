@@ -1,0 +1,29 @@
+{{!
+  ukko.mustache -- overboard, contains the last threads posted regardless of newsgroup
+  template parameters:
+  - prefix ( site prefix )
+  - threads ( a list of Thread Models that represent the latest threads )
+}}
+<!doctype html><html><head><link rel="stylesheet" href="/static/cards.css">
+  <meta name="viewport" content="initial-scale=1.0">
+  <title>ukko/overboard</title></head><body>
+  <span><a href="/">frontpage</a><br></span>
+  <div>
+    {{#threads}}
+      <div class="cards thread">
+        
+        <div class="card op">
+          <div class="head bordered">
+            posted on <a href="{{{BoardURL}}}">{{OP.Board}}</a>
+          </div>
+          {{{OP.Truncate.RenderPost}}}
+        </div>
+        {{#Truncate.Replies}}
+          <div class="card post">
+            {{{Truncate.RenderPost}}}
+          </div>
+        {{/Truncate.Replies}}
+      </div>
+    {{/threads}}
+  </div>
+</body></html>

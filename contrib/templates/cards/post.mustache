@@ -1,0 +1,18 @@
+<div class="head" id="{{PostHash}}">
+  <a href="{{PostURL}}" title="{{MessageID}}">{{ShortHash}}</a>
+    {{Date}}
+    {{#IsI2P}}i2p{{/IsI2P}}{{#IsTor}}tor{{/IsTor}}{{#IsClearnet}}clr{{/IsClearnet}}
+    {{Subject}}
+    {{Name}}
+    {{{Pubkey}}}
+    <a onclick="nntpchan_backlink('{{ShortHash}}');">[jsquote]</a>
+</div>
+{{#Attachments}}
+  <a href="{{Source}}" title="{{Filename}}" target="_blank" class="file">
+    <span>{{Filename}}</span><br>
+    <img src="{{Thumbnail}}" alt="{{Filename}}">
+  </a>
+{{/Attachments}}
+<div class="body">
+  {{{RenderBody}}}
+</div>

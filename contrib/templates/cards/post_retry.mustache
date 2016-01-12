@@ -1,9 +1,5 @@
-<html><head>
-  <link rel="stylesheet" href="/static/chen-chan.css">
-  <title>try again</title>
-  <meta name="viewport" content="initial-scale=1.0">
-</head><body>
-  <form enctype="multipart/form-data" name="post" method="post">
+<html><head><link rel="stylesheet" href="/static/cards.css"><title>try again</title></head><body>
+  <form enctype="multipart/form-data" name="post" method="post" class="card">
     {{#attachment}}
       <input type="hidden" name="attachment_data" value="{{attachment}}">
       <input type="hidden" name="attachment_filename" value="{{attachment_filename}}">
@@ -14,10 +10,10 @@
     <input type="hidden" name="subject" value="{{subject}}">
     <input type="hidden" name="captcha_id" value="{{captcha_id}}">
     <input type="hidden" name="message" value="{{message}}">
-    <p>post retry:</p>
-    <p>{{fail_message}}</p>
-    <input type="text" name="captcha" placeholder="captcha">
-    <input type="submit" value="Post" class="button">
+    <p class="head">retry posting.</p>
+    <p class="text">{{fail_message}}</p>
+    <input type="text" name="captcha" placeholder="captcha"><br>
+    <input type="submit" value="Post" class="button"><br>
     <img id="captcha_img" src="{{prefix}}captcha/{{captcha_id}}.png" alt="captcha">
   </form>
 </body></html>
