@@ -1,5 +1,5 @@
 body{font-family:monospace;max-width:84ch;word-wrap:break-word;}
-dd{margin-left:4ch;overflow:auto;}
+dd{margin:1em 0 0 4ch;overflow:auto;}
 .memearrows{color:green;}
 pre{margin: 0 0 0 0;}
 table,th,td{border:1px solid gray;}
