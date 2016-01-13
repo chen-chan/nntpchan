@@ -1,0 +1,48 @@
+{{!
+ modpage.mustache -- the moderator panel when logged in
+ template parameters:
+ - prefix ( the site's prefix )
+}}
+<!doctype html><html><head>
+  <link rel="stylesheet" href="{{prefix}}static/chenchan2.css">
+  <!-- yes it uses js -->
+  <script src="{{prefix}}static/mod.js"></script>
+  <title>nntpchan mod page</title>
+  <meta name="viewport" content="initial-scale=1.0">
+</head><body>
+  post actions:<br>
+  <label for="nntpchan_mod_target">target</label>
+  <input id="nntpchan_mod_target" type="text">
+  <br>
+  <button onclick="nntpchan_ban()">ban (url)</button>
+  <button onclick="nntpchan_delete()">delete (url)</button>
+  <button onclick="nntpchan_unban()">unban (ip)</button>
+  <br><br>
+  key actions:<br>
+  <label for="nntpchan_board_target">pubkey:</label>
+  <input type="text" id="nntpchan_key_target">
+  <br>
+  <button onclick="nntpchan_key_add()">add key</button>
+  <button onclick="nntpchan_key_del()">remove key</button>
+  <br><br>
+  board actions:<br>
+  <label for="nntpchan_board_target">board name:</label>
+  <input type="text" id="nntpchan_board_target">
+  <br>
+  <button onclick="nntpchan_admin_board('frontend.add')">add board</button>
+  <button onclick="nntpchan_admin_board('frontend.regen')">regenerate</button>  
+  <button onclick="nntpchan_admin_board('frontend.ban')">ban</button>
+  <button onclick="nntpchan_admin_board('frontend.unban')">unban</button>
+  <button onclick="nntpchan_admin_board('frontend.nuke')">nuke</button>
+  <br><br>
+  lightweight actions:<br>
+  <button onclick="nntpchan_admin('template.reload')">reload all templates</button>
+  <br><br>
+  very load heavy actions, use with care:<br>
+  <button onclick="nntpchan_admin('frontend.regen')">regenerate all pages</button>
+  <button onclick="nntpchan_admin('thumbnail.regen')">regenerate all thumbnails</button>
+  <br><br>
+  status:<br>
+  <div id="nntpchan_mod_result">ready</div>
+  <noscript><b>enable js to use the mod panel kthx</b></noscript>
+</body></html>

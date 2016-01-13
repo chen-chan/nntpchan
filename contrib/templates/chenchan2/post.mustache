@@ -1,4 +1,4 @@
-<dt id="{{PostHash}}">
+<div class="head" id="{{PostHash}}">
   <span title="{{MessageID}}">{{ShortHash}}</span>@{{Frontend}}
   {{Date}}
   <i>{{Subject}}</i>
@@ -6,10 +6,10 @@
   {{{Pubkey}}}
   <a href="{{PostURL}}">[select]</a>
   <a onclick="nntpchan_backlink('{{ShortHash}}');">[jsquote]</a> 
-</dt>
-<dd>
+</div>
+<div class="body">
   {{{RenderBody}}}
-  {{#Attachments}}
-    file:&nbsp;<a href="{{Source}}" target="_blank" class="file">{{Filename}}</a><br><br>
-  {{/Attachments}}
-</dd>
+</div>
+{{#Attachments}}
+  <div class="file"><a href="{{Source}}" target="_blank">file</a>:&nbsp{{Filename}}</div>
+{{/Attachments}}
