@@ -11,7 +11,7 @@ body{font-family:monospace;max-width:82ch;word-wrap:break-word;}
 .file{margin:0 0 1em 0;}
 
 .memearrows{color:green;}
-pre{margin: 0 0 0 0;}
+pre{margin: 0 0 0 0;white-space:pre-wrap;}
 div.post>div.body br:last-child, div.post>div.body br:nth-last-child(2){display:none;}
 
 table,th,td{border:solid 0.5ch lightgray;}
