@@ -1,14 +1,22 @@
-body{font-family:monospace;max-width:82ch;word-wrap:break-word;}
+body{
+    font-family:monospace;
+    max-width:82ch;
+    word-wrap:break-word;
+    background:#eee
+}
 
-.thread{border:solid 0.5ch lightgray;margin:0 0 1em 0;}
-.post{padding:0.5ch;}
-.post:not(:first-child){border-top:solid 0.5ch lightgray;}
+.thread{
+    border:solid 0.5ch #ccc;
+    margin:0 0 1em 0;
+}
 
-.head{opacity:0.5;font-size:small;}
+.post:not(:first-child){border-top:solid 0.5ch #ccc;}
+
+.head{font-size:small;}
 .head>label{word-break:break-all;}
 .head>span[title]{font-size:medium;}
-.body{margin:1em 0 1em 0;}
-.file{margin:0 0 1em 0;}
+.body{padding:1em 0.5ch 1em 0.5ch;background:#fff;}
+.file{padding:0 0 1em 0;background:#fff;}
 
 .memearrows{color:green;}
 pre{margin: 0 0 0 0;white-space:pre-wrap;}
