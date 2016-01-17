@@ -6,13 +6,13 @@
  - reference ( the post we are replying to, or empty string if it's an op )
  - button ( the text for the reply button )
 }}
-<form action="{{post_url}}" enctype="multipart/form-data" name="post" method="post" style="overflow:auto">
+<form action="{{post_url}}" enctype="multipart/form-data" name="post" method="post">
   <input type="hidden" name="reference" value="{{reference}}">
-  <textarea id="postform_message" name="message" placeholder="text" cols="40" rows="10" style="float:left" ></textarea>
-  <input type="file" name="attachment">
-  <input type="text" name="subject" placeholder="subject">
-  <input type="text" name="name" placeholder="name">
-  <input type="text" name="captcha" placeholder="captcha">
-  <input type="submit" value="{{button}}" class="button">
+  <textarea id="postform_message" name="message" placeholder="text" cols="40" rows="10"></textarea><br>
+  <input type="file" name="attachment"><br>
+  <input type="text" name="subject" placeholder="subject"><br>
+  <input type="text" name="name" placeholder="name"><br>
+  <input type="text" name="captcha" placeholder="captcha"><br>
+  <input type="submit" value="{{button}}" class="button"><br>
   <img id="captcha_img" src="{{prefix}}captcha/img" alt="captcha" style="float:left">
 </form>

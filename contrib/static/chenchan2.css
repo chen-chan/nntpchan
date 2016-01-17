@@ -26,3 +26,4 @@ table,th,td{border:solid 0.5ch lightgray;}
 table{border-collapse:collapse;}
 
 form *{width:100%;box-sizing:border-box;}
+form input[type="file"]{display:none;}
