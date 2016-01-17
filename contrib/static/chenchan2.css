@@ -1,6 +1,6 @@
 body{font-family:monospace;max-width:82ch;word-wrap:break-word;margin:0.25ch}
 .thread{border:solid 0.5ch #ccc;margin:0 0 1em}
-.head{font-size:small;background:#ccc}
+.head{background:#ccc}
 .head>span{display:none}
 .head>input:checked~span{display:inline}
 .body,.file{padding:0.5ch}
