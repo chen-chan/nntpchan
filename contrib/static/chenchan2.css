@@ -1,6 +1,6 @@
 body{font-family:monospace;max-width:82ch;word-wrap:break-word;margin:0.25ch}
-.thread{border:solid 0.5ch #ccc;margin:0 0 1em}
-.head{background:#ccc}
+.thread{border:solid 0.5ch #ddd;margin:0 0 2em}
+.head{background:#ddd}
 .head>span{display:none}
 .head>input:checked~span{display:inline}
 .body,.file{padding:0.5ch}
@@ -8,5 +8,5 @@ body{font-family:monospace;max-width:82ch;word-wrap:break-word;margin:0.25ch}
 pre{margin:0;white-space:pre-wrap}
 .post>.body br:last-child,.post>.body br:nth-last-child(2){display:none}
 form *{width:100%;box-sizing:border-box}
-table,th,td{border:solid 0.5ch #ccc}
+table,th,td{border:solid 0.5ch #ddd}
 table{border-collapse:collapse}
