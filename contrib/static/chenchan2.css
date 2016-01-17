@@ -1,13 +1,13 @@
 body{font-family:monospace;max-width:82ch;word-wrap:break-word}
-.thread{border:solid 0.5ch #ccc;margin:0 0 1em 0}
+.thread{border:solid 0.5ch #ccc;margin:0 0 1em}
 .head{font-size:small;background:#ccc}
 .head>span[title]{font-size:medium}
 .post:not(:first-child){border-top:solid 0.5ch #ccc}
 .body{padding:1em 0.5ch 1em 0.5ch}
-.file{padding:0 0 1em 0}
+.file{padding:0 0 1em}
 .memearrows{color:green}
 pre{margin:0;white-space:pre-wrap}
 .post>.body br:last-child,.post>.body br:nth-last-child(2){display:none}
 form *{width:100%;box-sizing:border-box}
-table,th,td{border:solid 0.5ch lightgray}
+table,th,td{border:solid 0.5ch #ccc}
 table{border-collapse:collapse}
