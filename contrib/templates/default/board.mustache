@@ -24,7 +24,10 @@
     <!-- begin navbar -->
     {{{board.Navbar}}}
     <!-- end navbar -->
-
+    <center>
+      <div id="nntpchan_banner">
+      </div>
+    </center>
     <!-- postform -->
     <div id="postform_container">
       {{{form}}}
@@ -43,5 +46,11 @@
         </div>
       {{/board.Threads}}
     </div>
+    <script type="text/javascript">
+
+      var e = document.getElementById("nntpchan_banner");
+      nntpchan_inject_banners(e, "{{board.Prefix}}");
+
+    </script>
   </body>
 </html>
