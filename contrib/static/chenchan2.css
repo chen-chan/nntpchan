@@ -1,4 +1,4 @@
-body{font-family:monospace;max-width:82ch;word-wrap:break-word;margin:0.25ch}
+body{font-family:monospace;max-width:82ch;word-wrap:break-word;margin:auto}
 .thread{border:solid 0.5ch #ddd;margin:0 0 2em}
 .head{background:#ddd}
 .head>span{display:none}
