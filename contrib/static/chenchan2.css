@@ -3,10 +3,10 @@ body{font-family:monospace;max-width:82ch;word-wrap:break-word;margin:auto}
 .head{background:#c0c0c0}
 .head>span{display:none}
 .head>input:checked~span{display:inline}
-.body,.file{padding:0.5ch;background:#eee}
+.body,.file{padding:0.5ch;background:#f0f0f0}
 .memearrows{color:green}
 pre{margin:0;white-space:pre-wrap}
 .post>.body br:last-child,.post>.body br:nth-last-child(2){display:none}
 form *{width:100%;box-sizing:border-box}
-table,th,td{border:solid 0.5ch #ddd}
+table,th,td{border:solid 0.5ch #c0c0c0}
 table{border-collapse:collapse}
