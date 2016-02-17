@@ -49,11 +49,18 @@ textarea {
 
 pre {
     white-space: pre-wrap;
-    background: #3f3f3f;
-    color: #d17600;
+    align: center;
+    font-size: 13pt;
+    background: #98E;
+    color: black;
     display: inline-block;
     overflow-wrap: break-word;
     word-wrap: break-word;
+    font-weight: bold;
+    padding: 20px 20px 20px 20px;
+    
+    margin-left: auto;
+    margin-right: auto;
 }
 
 table {
@@ -65,7 +72,7 @@ table.board-list-table {
 table tbody td {
 	margin: 0;
 	padding: 4px 15px 4px 4px;
-	
+	vertical-align: top;
 	text-align: left;
 }
 table thead th {
@@ -81,9 +88,45 @@ table tbody tr:nth-of-type( even ) {
 	background-color: #D6DAF0;
 }
 
+.postform >tr, th {
+     background: #98E;
+     font-size: 10pt;
+     text-align: left;
+     padding-right: 10px;
+     padding-left: 4px;
+}
+
+
+#postform-inner tr {
+	background-color: transparent!important;
+}
+
+input[type="text"],input[type="password"],textarea {
+  border: 1px solid #a9a9a9;
+  text-indent: 0;
+  text-shadow: none;
+  text-transform: none;
+  word-spacing: normal;
+  font-size: inherit;
+  font-family: sans-serif;
+}
+
+#board_td {
+    vertical-align: top;
+}
+
+.reply, .pagelist {
+    background: #D6DAF0;
+    border-width: 1px;
+    border-style: none solid solid none;
+    border-color: #B7C5D9;
+    display: inline-block;
+    max-width: 94%!important;
+}
 
 .reply, .ukko_thread_header {
     background: #D6DAF0;
+    margin-left: 24px;
 }
 
 legend {
@@ -95,6 +138,18 @@ hr {
     border-width: 1px medium medium;
     border-color: #b7c5d9;
     border-style: solid none none;
+    clear: both;
+}
+
+.board_header {
+  font-family: tahoma;
+  letter-spacing: -2px;
+  font-size: 20pt;
+  margin: 0;
+  color: #AF0A0F;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 2em;
 }
 
 a:hover , a:visited:hover {
@@ -137,13 +192,23 @@ a, a:visited {
 }
 
 #postform_container {
+    margin-top: 1em;
+}
+
+#board_graph {
     margin-top: 5em;
 }
 
+.navLinks {
+     padding-bottom: 50px;
+}
+
 .ukko_thread_header {
-    margin-left: 10%;
     float: left;
+    clear: both;
     display: inline-block;
+    padding-left: 4px;
+    padding-right: 4px;
 }
 
 
@@ -151,9 +216,9 @@ input, textarea {
 
 }
 
-.reply , .ukko_thread_header {
+.ukko_thread_header {
     border-color: #C0C3D4;
-    border-top-left-radius: 0px
+    border-top-left-radius: 0px;
     border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
     border-bottom-left-radius: 0px;
@@ -161,8 +226,7 @@ input, textarea {
 }
 
 .reply {
-    margin-left: 1.8em;
-    display: inline-block;
+    
 }
 
 .frontend {
@@ -171,18 +235,19 @@ input, textarea {
 }
 
 .op {
-    margin-right: 20px;
     margin-bottom: 1px;
+    float: left;
+    clear: both;
 }
 
 .post {
-    display: inline;
     margin-bottom: 5px;
-    min-height: 10%;
+    min-width: 500px;
 }
 
 .postheader {
-    padding: 5px;
+    padding-top: 3px;
+    padding-right: 5px
 }
 
 .tripcode {
@@ -253,14 +318,16 @@ input, textarea {
     max-height: 200px;
 }
 
-.reply, .ukko_thread_header , pre {
-    padding: 3px 5px 3px 5px; 
+.reply  {
+    padding: 3px 5px 3px 5px;
+    float: left;
+    clear: both;
 }
 
 .post_body {
     margin-left: 15px;
-    margin-top: 10px;
-    margin-bottom: 5px;
+    margin-top: 3px;
+    margin-bottom: 10px;
 }
 .post_body_line {
     margin-left: inherit;
@@ -272,8 +339,20 @@ input, textarea {
 
 .post {
     display: inline-block;
-    overflow: auto;
-    width: 80%;
+    overflow: hidden;
+
+}
+
+.pagelist {
+    display: inline-block;
+    overflow: hidden;
+    margin-left: 15px;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    padding: 10px 10px 10px 10px;
+    font-size: 12pt;
+    font-weight: medium;
+
 }
 
 .backlink, .backlink:hover, .backlink:visited, .backlink:visited:hover {
@@ -281,10 +360,10 @@ input, textarea {
     color: #D00
 }
 
-.origin {
-    margin: 10px;
-    padding-right: 5px;
-    padding-top: 5px;
+
+.origin > img{
+    height: 20px;
+    vertical-align: text-top;
 }
 
 #postform_attachment {
@@ -310,14 +389,6 @@ img.thumbnail {
     max-height: 350px;
 }
 
-.thread {
-    float: left;
-	  width: 100%;
-	  padding-left: 10%;
-	  margin-top: 1px;
-	  margin-bottom: 1px;
-    max-width: 90%
-}
 
 .replybar {
     float: left;
@@ -327,7 +398,7 @@ img.thumbnail {
     width: 34%
 }
 @media (max-width: 100ex) {
-    .replybar, .thread {
+    .replybar {
 		width: 100%;
 		position: static;
     }
@@ -350,8 +421,11 @@ textarea#reply-text {
     right: 0;
 }
 
-
-
 #nntpchan_banner {
     align: center;
+}
+
+.legal {
+    font-size: 10px;
+    text-align: center;
 }

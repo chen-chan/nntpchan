@@ -17,12 +17,13 @@
       <div id="nntpchan_banner">
       </div>
     </center>
+    <div class="board_header"> ukko / overboard </div>
     <div id="ukko_threads">
       {{#threads}}
-        <div class="ukko_thread_header">
+        <div class="thread" id="thread_{{OP.PostHash}}">
+	<div class="ukko_thread_header">
           <p>Posted on <a href="{{{BoardURL}}}"><span class="ukko_boardname">{{OP.Board}}</span></a></p>
         </div>
-        <div class="thread" id="thread_{{OP.PostHash}}">
           {{{OP.Truncate.RenderPost}}}
           {{#Truncate.Replies}}
             {{{Truncate.RenderPost}}}
@@ -36,5 +37,10 @@
           nntpchan_inject_banners(e, "{{prefix}}");
 
     </script>
+    <hr/>
+    <footer>
+    <p class="legal">All posts on this site are the responsibility of the individual poster and not the administration, pursuant to 47 U.S.C. § 230.</p>
+    <p class="legal">To make a DMCA request or report illegal content, please contact the administration</p>
+    </footer>
   </body>
 </html>
