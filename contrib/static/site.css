@@ -158,22 +158,37 @@ hr {
 }
 
 .catalog_thread {
-  float: left;
-  width: 256px;
-  text-align: center;
-  padding: 2px;
-  height: 256px;
-  overflow: hidden;
-  background-color: #D6DAF0;
-  margin: 2px;
-  border-style: solid;
-  border-width: 1px;
-  border-style: solid;
-  height: 256px;
+    display: inline-block;
+    width: 180px;
+    text-align: center;
+    padding: 0.25em;
+    height: 240px;
+    overflow: hidden;
+    background-color: rgba(182, 182, 182 ,0.12);
+    margin: 0.1em;
+    border: 2px solid rgba(111, 111, 111, 0.34);
+}
+
+.catalog_thread:hover {
+     background-color: #D6DAF0;
+}
+
+#catalog_container {
+    width: 95%;
+    margin: 1em auto;
+    text-align: center;
 }
 
 .catalog_header, .catalog_subject {
     font-weight: bold;
+}
+
+.linkThumb img {
+    max-height: 128px;
+    max-width: 128px;
+    box-shadow: 0 0 4px rgba(0,0,0,0.55);
+    border: 2px solid rgba(153,153,153,0);
+    margin-bottom: 5px;
 }
 
 a:hover , a:visited:hover {
@@ -217,10 +232,6 @@ a, a:visited {
 
 #postform_container {
     margin-top: 1em;
-}
-
-#board_graph {
-    margin-top: 5em;
 }
 
 .navLinks {
@@ -390,7 +401,7 @@ input, textarea {
     vertical-align: text-top;
 }
 
-#postform_attachment {
+.postform_attachment {
     max-width: 330px;
 }
 
@@ -452,4 +463,8 @@ textarea#reply-text {
 .legal {
     font-size: 10px;
     text-align: center;
+}
+
+.attachments {
+    float: left;
 }
