@@ -1,0 +1,21 @@
+/*
+dayman
+fighter of the night man
+champion of the sun
+*/
+
+body {
+    background-color: #FFEFC9;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    background-image: url('maymface.png');
+}
+
+.reply, .ukko_thread_header, th, .postform > tr , tbody > tr:nth-of-type( even )  {
+    background: #FBFFC9;
+}
+
+.navbar, table, thead, th, table, pre {
+    background: #FFECBE;
+}

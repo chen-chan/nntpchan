@@ -1,0 +1,84 @@
+/**
+  bloodgod theme css override
+*/
+
+body {
+    color: #666;
+    background: #111;
+}
+
+
+input, textarea, button, input[type="text"], input[type="password"],
+input[type="checkbox"], input[type="file"], input[type="submit"],
+input[type="button"] {
+    color: #666;
+    background: #050505;
+    border-color: #D80000;
+}
+
+.navbar {
+    background: #980000;
+    color: black;
+}
+
+#captcha_img, pre {
+    background: #D80000;
+}
+
+.reply, .ukko_thread_header {
+    border-color: #CA0101;
+}
+
+.ukko_thread_header {
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 3px;
+}
+
+
+hr, .name {
+    color: #6B1919;
+}
+
+.subject {
+    color: #4E0000;
+}
+
+.reply , .ukko_thread_header {
+    background: #0C0C0C;
+}
+
+a {
+    color: #500707;
+}
+
+.postno, .postnol {
+    color: #B70000;
+}
+
+.postform >tr, th {
+     background: #6B1919;
+}
+
+table tbody tr:nth-of-type( even ) {
+	  background-color: #430000;
+}
+
+table thead th {
+    color: #6B1919;
+    background: #430000;
+    border-color: #270000;
+}
+
+.navbar-sep {
+    color: #270000;
+}
+
+.navbar-link > label:hover {
+    color: red;
+}
+
+.origin > img , .not_found > img {
+    -webkit-filter: invert(1);
+    filter: invert(1);
+}

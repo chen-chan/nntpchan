@@ -7,12 +7,13 @@
 <html>
   <head>
     <link rel="stylesheet" href="{{prefix}}static/site.css" />
-    <link rel="stylesheet" href="{{prefix}}static/user.css" />
+    <link id="current_theme" rel="stylesheet" href="{{prefix}}static/user.css" />
     <!-- yes it uses js -->
+    <script type="text/javascript" src="{{prefix}}static/nntpchan.js"></script>
     <script type="text/javascript" src="{{prefix}}static/mod.js"></script>
     <title> {{#i18n.Translations}}{{modpage_title}}{{/i18n.Translations}} </title>
   </head>
-  <body>
+  <body onload="main()">
     <div>
       <div> {{#i18n.Translations}}{{post_actions_label}}{{/i18n.Translations}} </div>
       <hr />
@@ -95,6 +96,16 @@
       </div>
     </div>  
     <div id="nntpchan_mod_result"></div>
+    <div id="nntpchan_feeds"></div>
+    <script>
+      // start nntp feed stats ticker
+      var e = document.getElementById("nntpchan_feeds");
+      if (e) {
+        setInterval(function() {
+          update_nntpchan_feed_ticker(e);
+        }, 2000);
+      }
+    </script>
     <noscript>
       <b>{{#i18n.Translations}}{{nojs_info}}{{/i18n.Translations}}</b>
     </noscript>

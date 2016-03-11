@@ -9,14 +9,17 @@
     <title> {{#i18n.Translations}}{{overboard_title}}{{/i18n.Translations}} </title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="{{prefix}}static/site.css" />
-    <link rel="stylesheet" href="{{prefix}}static/user.css" />
+    <link id="current_theme" rel="stylesheet" href="{{prefix}}static/user.css" />
     <script type="text/javascript" src="{{prefix}}static/nntpchan.js"></script>
   </head>
-  <body>
+  <body onload="main()">
     <center>
       <div id="nntpchan_banner">
       </div>
     </center>
+    <!-- begin navbar -->
+    {{{navbar}}}
+    <!-- end navbar -->
     <div class="board_header"> {{#i18n.Translations}}{{overboard_title}}{{/i18n.Translations}} </div>
     <div id="ukko_threads">
       {{#threads}}

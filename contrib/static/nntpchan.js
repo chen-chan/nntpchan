@@ -24,3 +24,33 @@ function nntpchan_inject_banners(elem, prefix) {
   e.id = "nntpchan_banner";
   elem.appendChild(e);
 }
+
+function get_storage() {
+  var st = null;
+  if (window.localStorage) {
+    st = window.localStorage;
+  } else if (localStorage) {
+    st = localStorage;
+  }
+  return st;
+}
+
+function enable_theme(prefix, name) {
+  if (prefix && name) {
+    var theme = document.getElementById("current_theme");
+    if (theme) {
+      theme.href = prefix + "static/"+ name + ".css";
+      var st = get_storage();
+      st.nntpchan_prefix = prefix;
+      st.nntpchan_theme = name;
+    }
+  }
+}
+
+function main() {
+  // do other initialization here
+}
+
+// apply themes
+var st = get_storage();
+enable_theme(st.nntpchan_prefix, st.nntpchan_theme);

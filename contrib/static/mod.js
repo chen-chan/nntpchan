@@ -87,19 +87,25 @@ function nntpchan_admin_board(method) {
   })
 }
 
-function nntpchan_admin(method, param) {
-  nntpchan_mod({
-    name:"admin",
-    parser: function(target) {
-      return method;
-    },
-    handle: function(j) {
+function nntpchan_admin(method, param, handler_cb) {
+  if (handler_cb) {
+    // we got a handler already set
+  } else {
+    // no handler set
+    var handler_cb = function(j) {
       if (j.result) {
         return document.createTextNode(j.result);
       } else {
         return "nothing happened?";
       }
+    }
+  }
+  nntpchan_mod({
+    name:"admin",
+    parser: function(target) {
+      return method;
     },
+    handle: handler_cb,
     method: ( param && "POST" ) || "GET",
     data: param
   })
@@ -136,6 +142,42 @@ function nntpchan_delete() {
   });
 }
 
+function inject_nntp_feed_element(feed, elem) {
+  var name = document.createElement("div");
+  name.setAttribute("class", "feeds_name");
+  name_elem = document.createTextNode("Name: "+feed.State.Config.Name);
+  name.appendChild(name_elem);
+  elem.appendChild(name);
+
+  var conns = document.createElement("div");
+  conns.setAttribute("class", "feeds_connections");
+  conns_elem = document.createTextNode("Connections: "+feed.Conns.length);
+  conns.appendChild(conns_elem);
+  elem.appendChild(conns);
+}
+
+function update_nntpchan_feed_ticker(elem) {
+  nntpchan_admin("feed.list", null, function(j) {
+    if (j) {
+      if (j.error) {
+        console.log("nntpchan_feed_ticker: error, "+j.error);
+      } else {
+        // remove all children
+        while(elem.children.length) {
+          elem.children[0].remove();
+        }
+        
+        var result = j.result;
+        for (var idx = 0; idx < result.length; idx++) {
+          var item = result[idx];
+          var entry = document.createElement("div");
+          inject_nntp_feed_element(item, entry);
+          elem.appendChild(entry);
+        }
+      }
+    }
+  });
+}
 
 function nntpchan_mod(mod_action) {
 
@@ -171,13 +213,7 @@ function nntpchan_mod(mod_action) {
             var result = mod_action.handle(j);
             if (result) {
               elem.appendChild(result);
-            } else {
-              // fail
-              alert("mod action failed, handler returned nothing");
             }
-          } else {
-            // fail
-            alert("mod action has no handler");
           }
         }
       } else if (status) {
