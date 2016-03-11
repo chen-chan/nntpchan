@@ -1,0 +1,31 @@
+<div id="{{PostHash}}" class="{{CSSClass}}">
+  <legend class="postheader">
+    <span class="origin">
+  {{#IsI2P}}
+    <img src="{{Prefix}}static/i2p.png" title="post from i2p" />
+  {{/IsI2P}}
+  {{#IsTor}}
+    <img src="{{Prefix}}static/tor.png" title="post from tor" />
+  {{/IsTor}}
+  {{#IsClearnet}}
+    <img src="{{Prefix}}static/clearnet.png" title="post from clearnet" />
+  {{/IsClearnet}}
+    </span>  
+    <span class="subject">{{Subject}}</span>
+    <span class="name">{{Name}}</span>
+    <time datetime="{{DateRFC}}">{{Date}}</time>
+    <a href="#" class="postnol">No.</a><a class="postno" onclick="nntpchan_backlink('{{ShortHash}}');" title="{{MessageID}}">{{ShortHash}}</a>
+    <a href="{{PostURL}}">[Reply]</a>
+    <span class="tripcode">{{{Pubkey}}}</span>  
+  </legend>
+  {{#Attachments}}
+    <figure>
+    <figcaption>
+    <a href="{{Source}}" title="{{Filename}}" target="_blank"><img src="{{Thumbnail}}" alt="{{Filename}}" class="thumbnail"/></a>
+    </figcaption>
+    </figure>
+  {{/Attachments}}
+  <div class="post_body">
+    {{{RenderBody}}}
+  </div> 
+</div>

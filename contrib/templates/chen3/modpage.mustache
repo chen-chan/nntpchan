@@ -1,0 +1,102 @@
+{{!
+ modpage.mustache -- the moderator panel when logged in
+ template parameters:
+ - prefix ( the site's prefix )
+
+}}
+<html>
+  <head>
+    <link rel="stylesheet" href="{{prefix}}static/site.css" />
+    <link rel="stylesheet" href="{{prefix}}static/user.css" />
+    <!-- yes it uses js -->
+    <script type="text/javascript" src="{{prefix}}static/mod.js"></script>
+    <title> nntpchan mod page </title>
+  </head>
+  <body>
+    <div>
+      <div> post actions </div>
+      <hr />
+      <div>
+        <label for="nntpchan_mod_target">target</label>
+        <input id="nntpchan_mod_target" type="text" />
+      </div>
+      <div>
+        <button onclick="nntpchan_ban()">ban (url)</button>
+        <button onclick="nntpchan_delete()">delete (url)</button>
+        <button onclick="nntpchan_unban()">unban (ip)</button>
+      </div>
+    </div>
+    <hr />
+    <div>
+      <div> key actions </div>
+      <div>
+        <label for="nntpchan_board_target">pubkey:</label>
+        <input type="text" id="nntpchan_key_target" />
+      </div>
+      <div>
+        <button onclick="nntpchan_key_add()">add key</button>
+        <button onclick="nntpchan_key_del()">remove key</button>
+      </div>
+    </div>
+    <hr />
+    <div>
+      <div> nntp login </div>
+      <div>
+        <label for="nntpchan_nntp_username">username:</label>
+        <input id="nntpchan_nntp_username" />
+      </div>
+      <div>
+        <label for="nntpchan_nntp_passwd">password:</label>
+        <input type="password" id="nntpchan_nntp_passwd" />
+      </div>
+      <div>
+        <button onclick="nntpchan_admin_nntp('nntp.login.add')">add user</button>
+      </div>
+      <div>  
+        <button onclick="nntpchan_admin_nntp('nntp.login.del')">remove user</button>        
+      </div>
+    </div>
+    <hr />
+    <div>
+      <div> board actions </div>
+      <div>
+        <label for="nntpchan_board_target">board name:</label>
+        <input id="nntpchan_board_target" />
+      </div>
+      <div>
+        <button onclick="nntpchan_admin_board('frontend.add')">add board</button>
+      </div>
+      <div>
+        <button onclick="nntpchan_admin_board('frontend.regen')">regenerate</button>
+      </div>
+      <div>    
+        <button onclick="nntpchan_admin_board('frontend.ban')">ban</button>
+        <button onclick="nntpchan_admin_board('frontend.unban')">unban</button>
+      </div>
+      <div>
+        <button onclick="nntpchan_admin_board('frontend.nuke')">nuke</button>
+      </div>
+    </div>
+    <hr />
+    <div>
+      <div>
+        lightweight actions
+      </div>
+      <div>
+        <button onclick="nntpchan_admin('template.reload')">reload all templates</button>
+      </div>
+    </div>
+    <hr />
+    <div>
+      <label>very load heavy actions, use with care</label>
+      <div>
+        <button onclick="nntpchan_admin('frontend.regen')">rengenerate all markup</button>
+        <button onclick="nntpchan_admin('thumbnail.regen')">regenerate all thumbnails</button>
+      </div>
+    </div>  
+    <div id="nntpchan_mod_result"></div>
+    <noscript>
+      <b>enable js to use the mod panel kthx</b>
+    </noscript>
+  </body>
+</html>

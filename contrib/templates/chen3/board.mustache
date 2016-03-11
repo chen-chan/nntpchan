@@ -1,0 +1,42 @@
+{{!
+ board.mustache, displays the contents of page N of the board
+
+ template parameters:
+ - board ( the model of the current page )
+ - page ( the page number of the current page )
+ 
+ board has the properties:
+  - Prefix ( absolute path like //site.tld/ or /path/ )
+  - Board ( the name of the board )
+  - Navbar ( a function that renders the navbar, should not be escaped )
+  - Threads ( a list of Thread Models with the last few replies )
+}}
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1">
+    <link rel="stylesheet" href="{{board.Prefix}}static/chen3.css">
+    <script type="text/javascript" src="{{board.Prefix}}static/nntpchan.js"></script>
+    <title>{{board.Board}}</title>
+  </head>
+  
+  <body>
+    {{{board.Navbar}}}
+    <div id="nntpchan_banner"></div>
+    {{{form}}}
+    <hr>
+    
+    <div id="threads_container">
+      {{#board.Threads}}
+        <div class="thread" id="thread_{{OP.PostHash}}">
+          <div clsss="thread_header">
+          </div>
+          {{{OP.Truncate.RenderPost}}}
+          {{#Truncate.Replies}}
+            {{{Truncate.RenderPost}}}
+          {{/Truncate.Replies}}
+          <hr />
+        </div>
+      {{/board.Threads}}
+    </div>
+  </body>
+</html>
