@@ -142,17 +142,56 @@ function nntpchan_delete() {
   });
 }
 
+function createConnectionElement(j) {
+  var e = document.createElement("div");
+  e.setAttribute("class", "connection");
+  var auth = document.createElement("div");
+  auth.appendChild(document.createTextNode("Connection: "+j.name));
+  // authentication state
+  if (j.authed) {
+    auth.setAttribute("class", "authed");
+    auth.appendChild(document.createTextNode("(authenticated)"));
+  } else {
+    auth.appendChild(document.createTextNode("(not authenticated)"));
+  }
+  e.appendChild(auth);
+
+  // connection mode
+  var mode = document.createElement("div");
+  mode.setAttribute("class", "mode");
+  mode.appendChild(document.createTextNode("mode: "+j.mode));
+  e.appendChild(mode);
+
+  var pending = document.createElement("div");
+  pending.setAttribute("class", "pending");
+  // pending articles
+  var articles = Object.keys(j.pending);
+  pending.appendChild(document.createTextNode("pending articles: "+articles.length));
+  for ( var idx = 0 ; idx < articles.length; idx ++ ) {
+    var msgid = articles[idx];
+    var state = j.pending[msgid];
+    var elem = document.createElement("div");
+    elem.appendChild(document.createTextNode(msgid + ": " + state));
+    elem.setAttribute("class", "pending_item "+state);
+    pending.appendChild(elem);
+  }
+  e.appendChild(pending);
+  // e.appendChild(document.createTextNode(JSON.stringify(j)));
+  return e;
+}
+
 function inject_nntp_feed_element(feed, elem) {
+  elem.appendChild(document.createElement("hr"));
   var name = document.createElement("div");
   name.setAttribute("class", "feeds_name");
   name_elem = document.createTextNode("Name: "+feed.State.Config.Name);
   name.appendChild(name_elem);
   elem.appendChild(name);
-
   var conns = document.createElement("div");
-  conns.setAttribute("class", "feeds_connections");
-  conns_elem = document.createTextNode("Connections: "+feed.Conns.length);
-  conns.appendChild(conns_elem);
+  conns.setAttribute("class", "connections");
+  for ( var idx = 0 ; idx < feed.Conns.length; idx ++ ) {
+    conns.appendChild(createConnectionElement(feed.Conns[idx]));
+  }
   elem.appendChild(conns);
 }
 
