@@ -6,7 +6,7 @@
 * linux or freebsd
 * libsodium 1.0 or higher
 * imagemagick
-* ffmpegthumbnailer
+* ffmpeg
 * sox
 
 ## supported go versions ##
@@ -17,11 +17,12 @@
 
 ## debian ##
 
+Get `go 1.6` from [here](https://golang.org/dl/) for your platform
 
 Get the dependancies
 
     sudo apt-get update
-    sudo apt-get --no-install-recommends install imagemagick libsodium-dev ffmpegthumbnailer sox build-essential git golang ca-certificates
+    sudo apt-get --no-install-recommends install imagemagick libsodium-dev ffmpeg sox build-essential git ca-certificates
 
 
 Check out the repo and build it
@@ -34,4 +35,4 @@ If you want to build without supporting redis then build with the `--no-redis` f
 
     ./build.sh --no-redis
 
-Now configure the database. [next](database.md)
+To run eiter run `./srndv2 setup` and browse to http://127.0.0.1:18000 or configure [by hand](database.md)
