@@ -11,6 +11,7 @@
   - Navbar ( a function that renders the navbar, should not be escaped )
   - Threads ( a list of Thread Models with the last few replies )
 }}
+<!doctype html>
 <html>
   <head>
     <meta charset="utf-8" />
@@ -20,7 +21,7 @@
     <script type="text/javascript" src="{{board.Prefix}}static/nntpchan.js"></script>
     <title>{{board.Board}}</title>
   </head>
-  <body onload="main()">
+  <body>
     <!-- begin navbar -->
     {{{board.Navbar}}}
     <!-- end navbar -->
@@ -55,10 +56,11 @@
     <a href="{{board.Prefix}}catalog-{{board.Name}}.html"> {{#i18n.Translations}}{{catalog_label}}{{/i18n.Translations}} </a>
     </div>
     <script type="text/javascript">
-
+      var prefix = "{{board.Prefix}}";
       var e = document.getElementById("nntpchan_banner");
-      nntpchan_inject_banners(e, "{{board.Prefix}}");
-
+      nntpchan_inject_banners(e, prefix);
+      init(prefix);
+      ready();
     </script>
     <hr/>
     <footer>

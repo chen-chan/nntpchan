@@ -17,6 +17,27 @@ section {
 	width: 100%;
 }
 
+.hover {
+    position: absolute;
+}
+
+.notfound-hover {
+    background: #EEF2FF;
+    padding: 10px;
+}
+
+#postform_container {
+    background-color: #EEF2FF;
+    box-shadow: 0 0 10px rgba(0,0,0,0.55);
+    position: fixed;
+    right: 10px;
+    top: 25px;
+}
+
+.hover > div > .post , .notfound-hover {
+    background-color: #D6DAF0;
+    box-shadow: 0 0 10px rgba(0,0,0,0.55);
+}
 
 .frontend , .subject, .catalog_subject {
     color: #0F0C5D;
@@ -88,7 +109,7 @@ table tbody tr:nth-of-type( even ) {
 	background-color: #D6DAF0;
 }
 
-.postform >tr, th {
+.postform > tr, th {
      background: #98E;
      font-size: 10pt;
      text-align: left;
@@ -96,8 +117,7 @@ table tbody tr:nth-of-type( even ) {
      padding-left: 4px;
 }
 
-
-#postform-inner tr {
+tr {
 	background-color: transparent!important;
 }
 
@@ -120,7 +140,6 @@ input[type="text"],input[type="password"],textarea {
     border-width: 1px;
     border-style: none solid solid none;
     border-color: #B7C5D9;
-    display: inline-block;
     max-width: 94%!important;
 }
 
@@ -279,6 +298,10 @@ input, textarea {
     clear: both;
 }
 
+.post:target {
+    background-color: #A99AFF;
+}
+
 .post {
     margin-bottom: 5px;
     min-width: 500px;
@@ -349,8 +372,15 @@ input, textarea {
     float: left;
 }
 
-.file-thumbnail {
-    display: block;
+.expanded-thumbnail {
+    display: inline;
+    max-width: 100%;
+    max-height: 100%;
+    margin: 10px 10px 10px;
+}
+
+.thumbnail {
+    display: block;                      
     margin: 5px 20px 10px;
     border: medium none;
     max-width: 300px;
@@ -379,7 +409,6 @@ input, textarea {
 .post {
     display: inline-block;
     overflow: hidden;
-
 }
 
 .pagelist {
@@ -394,7 +423,11 @@ input, textarea {
 
 }
 
-.backlink, .backlink:hover, .backlink:visited, .backlink:visited:hover {
+.backlink_rewritten {
+    z-index: 5;
+}
+
+.backlink, .backlink:hover, .backlink:visited, .backlink:visited:hover, .backlink_rewritten {
     margin-left: none;
     color: #D00
 }
