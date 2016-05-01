@@ -14,14 +14,9 @@
   <title>{{thread.OP.Subject}}</title>
   <meta name="viewport" content="initial-scale=1">
 </head>
-{{{thread.Navbar}}}
-{{{form}}}
-<hr>
+{{{thread.Navbar}}} | <a href="{{thread.Prefix}}catalog-{{thread.Board}}.html">catalog</a><br>
 {{{thread.OP.RenderPost}}}
 {{#thread.Replies}}
   {{{RenderPost}}}
 {{/thread.Replies}}
-<hr>
-[<a href="{{thread.Prefix}}catalog-{{thread.Board}}.html" accesskey="c">{{#i18n.Translations}}{{catalog_label}}{{/i18n.Translations}}</a>]
-[<a href="#thread_{{thread.OP.PostHash}}">{{#i18n.Translations}}{{to_top_label}}{{/i18n.Translations}}</a>]
-[<a href="#navlinks" accesskey="r" onclick="location.reload();">{{#i18n.Translations}}{{update}}{{/i18n.Translations}}</a>]
+{{{form}}}
