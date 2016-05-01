@@ -1,0 +1,16 @@
+<div id="{{post.PostHash}}" class="{{post.CSSClass}}">
+  <span title="{{post.MessageID}}"><b>{{post.ShortHash}}</b></span>
+  {{post.Subject}}
+  {{post.DateRFC}} {{!-- post.Date available too --}}
+  {{post.Name}}
+  <a href="{{post.PostURL}}">[{{#i18n.Translations}}{{reply_label}}{{/i18n.Translations}}]</a>
+  {{{post.Pubkey}}}
+  <br>
+  {{{post.RenderBody}}}
+  <div>
+    {{#post.Attachments}}  
+    <a class="file" href="{{Source}}" title="{{Filename}}" target="_blank"><img src="{{Thumbnail}}" alt="{{Filename}}" class="thumbnail"></a>
+    {{/post.Attachments}}
+  </div>
+</div>
+<br>
