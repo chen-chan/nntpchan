@@ -38,6 +38,10 @@ function DynReply(existingElem) {
     // wrap existing post form
     this.elem = existingElem;
     this.form = this.elem.querySelector("form");
+    this._error = document.getElementById("postform_msg");
+    this.url = this.form.action + "?t=json";
+    var e = document.getElementById("postform_submit");
+    e.setAttribute("type", "button");
     return;
   }
 
@@ -66,7 +70,10 @@ function DynReply(existingElem) {
   elem = document.createElement("input");
   elem.setAttribute("name", "name");
   elem.setAttribute("value", "Anonymous");
-  table_insert_row(tbody, document.createTextNode("Name"), [elem])
+  var err_elem = document.createElement("span");
+  err_elem.setAttribute("id", "postform_msg");
+  this._error = err_elem;
+  table_insert_row(tbody, document.createTextNode("Name"), [elem, err_elem])
   
   // subject
   elem = document.createElement("input");
@@ -74,11 +81,13 @@ function DynReply(existingElem) {
   elem.setAttribute("value", "");
   // submit
   var submit = document.createElement("input");
-  submit.setAttribute("type", "submit");
   submit.setAttribute("value", "reply");
   submit.setAttribute("class", "button");
+  submit.setAttribute("type", "button");
+  submit.setAttribute("id", "postform_submit");
   table_insert_row(tbody, document.createTextNode("Subject"), [elem, submit]);
 
+  
   // Comment
   elem = document.createElement("textarea");
   elem.setAttribute("id", "postform_message");
@@ -121,6 +130,12 @@ function DynReply(existingElem) {
   this.board = null;
   this.roothash = null;
   this.prefix = null;
+  this.url = null;
+}
+
+DynReply.prototype.moveTo = function(x,y) {
+  x = window.screenX - x ;
+  this.elem.setAttribute("style", "top: "+y+"px; right: "+x+"px;");
 }
 
 DynReply.prototype.update = function() {
@@ -131,7 +146,7 @@ DynReply.prototype.update = function() {
       // update post form
       var ref = document.getElementById("postform_reference");
       ref.setAttribute("value", this.roothash);
-      this.form.action = this.prefix + "post/" + this.board;
+      this.url = this.prefix + "post/" + this.board + "?t=json";
     }
   }
 }
@@ -140,6 +155,33 @@ DynReply.prototype.show = function() {
   console.log("show dynreply");
   this.update();
   this.elem.style.display = 'inline';
+}
+
+DynReply.prototype.hide = function() {
+  console.log("hide dynreply");
+  this.elem.style.display = "none";
+}
+
+DynReply.prototype.post = function(cb, err_cb) {
+  if (this.url && this.form) {
+    var data = new FormData(this.form);
+    var ajax = new XMLHttpRequest();
+    ajax.onreadystatechange = function(ev) {
+      if (ajax.readyState == XMLHttpRequest.DONE) {
+        var j = null;
+        try {
+          j = JSON.parse(ajax.responseText);
+          cb(j);
+        } catch (e) {
+          if(err_cb) {
+            err_cb(e);
+          }
+        }
+      }
+    }
+    ajax.open("POST", this.url);
+    ajax.send(data);
+  }
 }
 
 DynReply.prototype.updateCaptcha = function() {
@@ -170,16 +212,33 @@ DynReply.prototype.setRoot = function(roothash) {
   }
 }
 
+DynReply.prototype.showError = function(msg) {
+  console.log("error in dynreply: "+msg);
+  this._error.setAttribute("class", "error");
+  this._error.appendChild(document.createTextNode(msg));
+  this.updateCaptcha();
+}
+
+DynReply.prototype.showMessage = function(msg) {
+  this._error.setAttribute("class", "message");
+  this._error.appendChild(document.createTextNode(msg));
+  var e = this._error;
+  setTimeout(function() {
+    // clear it
+    e.innerHTML = "";
+  }, 2000);
+}
+
+
 // reply box function
-function nntpchan_reply(prefix, parent, shorthash) {
-  if (prefix && parent) {
+function nntpchan_reply(parent, shorthash) {
+  if (parent) {
     var boardname = parent.getAttribute("boardname");
     var roothash = parent.getAttribute("root");
     var replyto = getReplyTo();
     // set target
     replyto.setBoard(boardname);
     replyto.setRoot(roothash);
-    replyto.setPrefix(prefix);
     // show it
     replyto.show();
   }
@@ -257,15 +316,56 @@ function inject_hover_for_element(elem) {
 function init(prefix) {
   // inject posthover ...
   inject_hover_for_element(document);
-  // dynamic post reply draggable
+  // initialize replyto widget
   var rpl = getReplyTo();
   rpl.setPrefix(prefix);
+
+  // position replyto widget
   var e = rpl.elem;
   e.setAttribute("draggable", "true");
-  e.ondragend = function(ev) {
-    ev.preventDefault();
-    var el = document.getElementById("postform_container");
-    el.setAttribute("style", "top: "+ev.y+"; left: "+ev.x+ "; position: fixed; ");
+  var mouseDownX, mouseDownY;
+
+  var originalX = window.screenX - 150;
+  var originalY = 10;
+  rpl.moveTo(originalX, originalY);
+
+  e.addEventListener("dragstart", function(ev) {
+    mouseDownX = ev.clientX;
+    mouseDownY = ev.clientY;
+    if (!ev.ctrlKey) {
+      ev.preventDefault();
+    }
+  }, false);
+  
+  e.addEventListener("dragend", function(ev) {
+    var x = originalX + ev.clientX - mouseDownX;
+    var y = originalY + ev.clientY - mouseDownY;
+    x -= window.screenLeft;
+    y -= window.screenTop;
+    rpl.moveTo(x, y);
+    originalX = x;
+    originalY = y;
+  }, false);
+
+  // add replyto post handlers
+  e = document.getElementById("postform_submit");
+  e.onclick = function() {
+    var f = document.querySelector("form");
+    // do ajax request to post data
+    var r = getReplyTo();
+    r.post(function(j) {
+      if(j.error) {
+        // an error happened
+        r.showError(j.error);
+      } else {
+        // we're good
+        r.showMessage("posted as "+j.message_id);
+        r.updateCaptcha();
+      }
+    }, function(err) {
+      r.showError(err);
+    });
+    r.showMessage("posting... ");
   }
 }
 
