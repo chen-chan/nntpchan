@@ -1,23 +1,9 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="initial-scale=1" />
-    <link rel="stylesheet" href="{{board.Prefix}}static/site.css" />
-    <link rel="stylesheet" href="{{board.Prefix}}static/user.css" />
-    <link id="current_theme" rel="stylesheet" href="{{board.Prefix}}static/user.css" />
-    <script type="text/javascript" src="{{board.Prefix}}static/nntpchan.js"></script>
-    <title>{{#i18n.Translations}}{{catalog_title}}{{/i18n.Translations}} {{board.Name}}</title>
-  </head>
-  <body>
-    <!-- begin navbar -->
-    {{{board.Navbar}}}
-    <!-- end navbar -->
-    <center>
-      <div id="nntpchan_banner">
-      </div>
-    </center>
-    <div class="board_header">{{#i18n.Translations}}{{catalog_title}}{{/i18n.Translations}} {{board.Name}}</div>
+<!doctype html><html><head>
+  <meta name="viewport" content="initial-scale=1">
+  <title>{{#i18n.Translations}}{{catalog_title}}{{/i18n.Translations}} {{board.Name}}</title>
+</head>
+{{{board.Navbar}}}
+<div class="board_header">{{#i18n.Translations}}{{catalog_title}}{{/i18n.Translations}} {{board.Name}}</div>
     <!-- postform -->
     <hr />
     <div id="catalog_container">
@@ -32,16 +18,3 @@
         </div>
       {{/board.Threads}}
     </div>
-    <script type="text/javascript">
-
-      var e = document.getElementById("nntpchan_banner");
-      nntpchan_inject_banners(e, "{{board.Prefix}}");
-
-    </script>
-    <hr/>
-    <footer>
-    <p class="legal">All posts on this site are the responsibility of the individual poster and not the administration, pursuant to 47 U.S.C. § 230.</p>
-    <p class="legal">To make a DMCA request or report illegal content, please contact the administration</p>
-    </footer>
-  </body>
-</html>

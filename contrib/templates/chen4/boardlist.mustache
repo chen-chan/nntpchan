@@ -5,37 +5,34 @@
   - frontend ( the name of the frontend )
   - prefix ( the site's prefix )
 }}
-<!doctype html>
-<html>
-  <head>
-    <link rel="stylesheet" href="{{prefix}}static/chen4.css"></link>
-    <title>{{frontend}} {{#i18n.Translations}}{{board_list_title}}{{/i18n.Translations}}</title>
-  </head>
-  <table id="board_graph">
-    <thead>
+<!doctype html><html><head>
+  <title>{{frontend}} {{#i18n.Translations}}{{board_list_title}}{{/i18n.Translations}}</title>
+</head>
+<table id="board_graph">
+  <thead>
+    <tr>
+      <th> {{#i18n.Translations}}{{board_label}}{{/i18n.Translations}} </th>
+      <th> {{#i18n.Translations}}{{pph_label}}{{/i18n.Translations}} </th>
+      <th> {{#i18n.Translations}}{{ppd_label}}{{/i18n.Translations}} </th>
+      <th> {{#i18n.Translations}}{{total}}{{/i18n.Translations}} </th>
+    </tr>
+  </thead>
+  <tbody>
+    {{# graph}}
       <tr>
-        <th> {{#i18n.Translations}}{{board_label}}{{/i18n.Translations}} </th>
-        <th> {{#i18n.Translations}}{{pph_label}}{{/i18n.Translations}} </th>
-        <th> {{#i18n.Translations}}{{ppd_label}}{{/i18n.Translations}} </th>
-        <th> {{#i18n.Translations}}{{total}}{{/i18n.Translations}} </th>
+        <td>
+          <a href="{{prefix}}{{Board}}-0.html">{{Board}}</a>
+        </td>
+        <td>
+          {{Hour}}
+        </td>
+        <td>
+          {{Day}}
+        </td>
+        <td>
+          {{All}}
+        </td>
       </tr>
-    </thead>
-    <tbody>
-      {{# graph}}
-        <tr>
-          <td>
-            <a href="{{prefix}}{{Board}}-0.html">{{Board}}</a>
-          </td>
-          <td>
-            {{Hour}}
-          </td>
-          <td>
-            {{Day}}
-          </td>
-          <td>
-            {{All}}
-          </td>
-        </tr>
-      {{/ graph}}
-    </tbody>
-  </table>
+    {{/ graph}}
+  </tbody>
+</table>
