@@ -183,6 +183,8 @@ DynReply.prototype.clearPostbox = function() {
   e.value = "";
   e = document.getElementById("postform_message");
   e.value = "";
+  e = document.getElementById("postform_attachments");
+  e.value = null;
 }
 
 DynReply.prototype.post = function(cb, err_cb) {
@@ -245,6 +247,7 @@ DynReply.prototype.showError = function(msg) {
 
 DynReply.prototype.showMessage = function(msg) {
   this._error.setAttribute("class", "message");
+  this._error.innerHTML = "";
   this._error.appendChild(document.createTextNode(msg));
   var e = this._error;
   setTimeout(function() {
@@ -377,13 +380,14 @@ function init(prefix) {
     var f = document.querySelector("form");
     // do ajax request to post data
     var r = getReplyTo();
+    r.showMessage("posting... ");
     r.post(function(j) {
       if(j.error) {
         // an error happened
         r.showError(j.error);
       } else {
         // we're good
-        r.showMessage("posted as "+j.message_id);
+        r.showMessage("posted :^)");
         r.updateCaptcha();
         r.clear();
       }
@@ -391,9 +395,7 @@ function init(prefix) {
       r.showError(err);
       r.clearSolution();
     });
-    r.showMessage("posting... ");
   }
-  e.onclick = postit;
   var f = document.querySelector("form");
   f.onsubmit = function() {
     postit();
