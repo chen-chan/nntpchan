@@ -1,11 +1,12 @@
 <div id="{{post.PostHash}}" class="{{post.CSSClass}}">
-  <span title="{{post.MessageID}}"><b>{{post.ShortHash}}</b></span>
+  <b>{{post.ShortHash}}</b>
   {{post.Subject}}
-  {{post.DateRFC}} {{!-- post.Date available too --}}
-  {{post.Name}}
-  <a href="{{post.PostURL}}">[{{#i18n.Translations}}{{reply_label}}{{/i18n.Translations}}]</a>
-  {{{post.Pubkey}}}
-  <br>
+  <small>
+    <a href="{{post.PostURL}}">{{post.DateRFC}}</a>{{!-- post.Date available too --}}
+    {{post.MessageID}}
+    {{post.Name}}
+    {{{post.Pubkey}}}
+  </small><br>
   {{{post.RenderBody}}}
   <div>
     {{#post.Attachments}}  
