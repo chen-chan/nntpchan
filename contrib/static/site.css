@@ -30,7 +30,6 @@ section {
     background-color: #EEF2FF;
     box-shadow: 0 0 10px rgba(0,0,0,0.55);
     position: fixed;
-    right: 10px;
     top: 25px;
 }
 
@@ -341,7 +340,6 @@ input, textarea {
     display: inline-block;
 }
 
-
 .memearrows {
     color: #789922;
     margin-left: none;
@@ -470,8 +468,7 @@ img.thumbnail {
     float: left;
     position: fixed;
     top: 2ex;
-    right: 0;
-    width: 34%
+    width: 500px;
 }
 @media (max-width: 100ex) {
     .replybar {
