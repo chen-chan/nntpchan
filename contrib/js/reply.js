@@ -1,18 +1,16 @@
 
-var dynreply;
-
 function getReplyTo() {
-  if(!dynreply) {
+  if(!document.dynreply) {
     var e = document.getElementById("postform_container");
     if (e) {
       // use existing postform
-      dynreply = new DynReply(e);
+      document.dynreply = new DynReply(e);
     } else {
       // build a new postform
-      dynreply = new DynReply();
+      document.dynreply = new DynReply();
     }
   }
-  return dynreply;
+  return document.dynreply;
 }
 
 function table_insert_row(table, header, items) {
@@ -36,10 +34,13 @@ function table_insert_row(table, header, items) {
 function DynReply(existingElem) {
   if (existingElem) {
     // wrap existing post form
+    // XXX: wrap it here
     this.elem = existingElem;
     this.form = this.elem.querySelector("form");
     this._error = document.getElementById("postform_msg");
     this.url = this.form.action + "?t=json";
+    this.x = 1;
+    this.y = 1;
     return;
   }
 
@@ -64,15 +65,19 @@ function DynReply(existingElem) {
   table.setAttribute("class", "postform");
   var tbody = document.createElement("tbody");
 
+  var span = document.createElement("span");
   // name 
   elem = document.createElement("input");
   elem.setAttribute("name", "name");
   elem.setAttribute("value", "Anonymous");
   elem.setAttribute("id", "postform_name");
+  span.appendChild(elem);
+  // error message
   var err_elem = document.createElement("span");
   err_elem.setAttribute("id", "postform_msg");
+  span.appendChild(err_elem);
   this._error = err_elem;
-  table_insert_row(tbody, document.createTextNode("Name"), [elem, err_elem])
+  table_insert_row(tbody, document.createTextNode("Name"), [span])
   
   // subject
   elem = document.createElement("input");
@@ -132,11 +137,9 @@ function DynReply(existingElem) {
   this.roothash = null;
   this.prefix = null;
   this.url = null;
-}
-
-DynReply.prototype.moveTo = function(x,y) {
-  x = window.screenX - x ;
-  this.elem.setAttribute("style", "top: "+y+"px; right: "+x+"px;");
+  this.x = 1;
+  this.y = 1;
+  
 }
 
 DynReply.prototype.update = function() {
@@ -240,7 +243,7 @@ DynReply.prototype.setRoot = function(roothash) {
 
 DynReply.prototype.showError = function(msg) {
   console.log("error in dynreply: "+msg);
-  this._error.setAttribute("class", "error");
+  this._error.setAttribute("class", "error message");
   this._error.appendChild(document.createTextNode(msg));
   this.updateCaptcha();
 }
@@ -349,31 +352,30 @@ function init(prefix) {
 
   // position replyto widget
   var e = rpl.elem;
-  e.setAttribute("draggable", "true");
   var mouseDownX, mouseDownY;
-
-  var originalX = window.screenX - 150;
-  var originalY = 10;
-  rpl.moveTo(originalX, originalY);
-
-  e.addEventListener("dragstart", function(ev) {
-    mouseDownX = ev.clientX;
-    mouseDownY = ev.clientY;
-    if (!ev.ctrlKey) {
-      ev.preventDefault();
-    }
-  }, false);
   
-  e.addEventListener("dragend", function(ev) {
-    var x = originalX + ev.clientX - mouseDownX;
-    var y = originalY + ev.clientY - mouseDownY;
-    x -= window.screenLeft;
-    y -= window.screenTop;
-    rpl.moveTo(x, y);
-    originalX = x;
-    originalY = y;
-  }, false);
+  var $dragging = null;
 
+  $(rpl.elem).on("mousemove", function(ev) {
+    if ($dragging) {
+      var x = ev.pageX - $(this).width() / 2,
+          y = ev.pageY - $(this).height() / 2;
+      $dragging.offset({
+        top: y,
+        left: x
+      });
+    }
+  });
+
+
+  $(rpl.elem).on("mousedown", e, function (ev) {
+    $dragging = $(rpl.elem);
+  });
+
+  $(rpl.elem).on("mouseup", function (e) {
+    $dragging = null;
+  });
+  
   // add replyto post handlers
   e = document.getElementById("postform_submit");
   var postit = function() {
