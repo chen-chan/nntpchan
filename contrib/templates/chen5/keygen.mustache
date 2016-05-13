@@ -1,0 +1,13 @@
+{{!
+ keygen.mustache -- page containing a newly generated tripcode
+ template parameters:
+ - prefix ( the site prefix )
+ - public ( the public key in hex )
+ - secret ( the secret key in hex )
+ - tripcode ( html version of the public key )
+ }}<!doctype html><meta charset="utf-8"><meta name="viewport" content="initial-scale=1"><style>body{max-width:80ch;white-space:pre-wrap;word-break:break-word;font-family:monospace}*{max-width:100%}</style><title>{{#i18n.Translations}}{{new_tripcode_title}}{{/i18n.Translations}}</title>
+{{#i18n.Translations}}{{new_tripcode_label}}{{/i18n.Translations}}
+
+{{#i18n.Translations}}{{secret_key}}{{/i18n.Translations}}: {{secret}}
+{{#i18n.Translations}}{{public_key}}{{/i18n.Translations}}: {{public}}
+{{#i18n.Translations}}{{tripcode}}{{/i18n.Translations}}: {{{tripcode}}}

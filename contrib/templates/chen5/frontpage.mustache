@@ -1,0 +1,29 @@
+{{!
+  frontpage.mustache -- template for index.html
+  template parameters:
+  - boardgraph ( markup of boardPageRows instance, see srnd/model.go )
+  - postgraph ( markup of postsGraph instance , see srnd/model.go )
+  - overview ( markup of overviewModel instance , see srnd/model.go 
+  - totalposts ( the number of total posts we have ever seen )
+  - frontend ( the name of the frontend )
+  - prefix ( the site's prefix )
+}}<!doctype html><meta charset="utf-8"><meta name="viewport" content="initial-scale=1"><title>{{frontend}} on nntpchan</title><style>body{max-width:80ch;white-space:pre-wrap;word-break:break-word;font-family:monospace}*{max-width:100%}</style>
+{{{navbar}}} <a href="{{prefix}}static/faq.html">FAQ</a>
+
+{{frontend}} on nntpchan
+
+IRC: rizon.net#nntpchan and irc2p#overchan
+URC: allyour4nert7pkh.onion#overchan
+source: <a href="https://github.com/majestrate/nntpchan/">frontend</a> and <a href="https://github.com/majestrate/srndv1/">core</a>
+
+links to active nntpchan nodes:{{!-- template: <a href=""></a><br> --}}
+<a href="https://i2p.rocks/ib/">https://i2p.rocks/ib/</a>
+<a href="https://nsfl.tk">https://nsfl.tk</a>
+<a href="https://2hu-ch.org">https://2hu-ch.org</a>
+<a href="http://ucavviu6wl6azuw7.onion">http://ucavviu7wl6azuw7.onion</a>
+<a href="http://oniichanylo2tsi4.onion">http://oniichanylo2tsi4.onion</a>
+<a href="http://overchan.oniichan.i2p">http://overchan.oniichan.i2p</a>
+<a href="http://g7c54d4b7yva4ktpbaabqeu2yx6axalh4gevb44afpbwm23xuuya.b32.i2p">http://g7c54d4b7yva4ktpbaabqeu2yx6axalh4gevb44afpbwm23xuuya.b32.i2p</a>
+
+if you want your post seen across all of nntpchan, don't put files in it. if you post files from this node, it's very likely the entire post won't show up on other clearnet nodes because they fear the CP. (not that CP won't be nuked here or anything)
+{{{postsgraph}}}
