@@ -1,3 +1,2 @@
-<b id="{{post.PostHash}}">{{post.ShortHash}}</b> {{post.Subject}} <a href="{{post.PostURL}}">{{post.DateRFC}}</a> {{post.Name}} {{{post.Pubkey}}} {{post.MessageID}}
-
+<span id="{{post.PostHash}}" style="opacity:0.5">{{post.ShortHash}} {{post.Subject}} <a href="{{post.PostURL}}">{{post.DateRFC}}</a> {{post.Name}} {{post.MessageID}} {{{post.Pubkey}}}</span>
 {{{post.RenderBody}}}{{#post.Attachments}}<a class="file" href="{{Source}}" title="{{Filename}}" target="_blank"><img src="{{Thumbnail}}" alt="{{Filename}}"></a> {{/post.Attachments}}
