@@ -8,15 +8,15 @@
   - frontend ( the name of the frontend )
   - prefix ( the site's prefix )
 }}<!doctype html><meta charset="utf-8"><meta name="viewport" content="initial-scale=1"><title>{{frontend}} on nntpchan</title><style>body{max-width:80ch;white-space:pre-wrap;word-break:break-word;font-family:monospace}*{max-width:100%}</style>
-{{{navbar}}} <a href="{{prefix}}static/faq.html">FAQ</a>
+{{{navbar}}}{{{!-- <a href="{{prefix}}static/faq.html">FAQ</a>--}}}
 
 {{frontend}} on nntpchan
 
 IRC: rizon.net#nntpchan and irc2p#overchan
 URC: allyour4nert7pkh.onion#overchan
-source: <a href="https://github.com/majestrate/nntpchan/">frontend</a> and <a href="https://github.com/majestrate/srndv1/">core</a>
+source: <a href="https://github.com/majestrate/nntpchan/">frontend</a>, <a href="https://github.com/majestrate/srndv1/">core</a> and <a href="https://github.com/chen-chan/nntpchan/tree/master/contrib/templates/chen5">template</a> used here
 
-links to active nntpchan nodes:{{!-- template: <a href=""></a><br> --}}
+links to active nntpchan nodes:{{!-- template: <a href=""></a> --}}
 <a href="https://i2p.rocks/ib/">https://i2p.rocks/ib/</a>
 <a href="https://nsfl.tk">https://nsfl.tk</a>
 <a href="https://2hu-ch.org">https://2hu-ch.org</a>
@@ -27,3 +27,30 @@ links to active nntpchan nodes:{{!-- template: <a href=""></a><br> --}}
 
 if you want your post seen across all of nntpchan, don't put files in it. if you post files from this node, it's very likely the entire post won't show up on other clearnet nodes because they fear the CP. (not that CP won't be nuked here or anything)
 {{{postsgraph}}}
+Question: What is nntpchan?
+NNTPCchan is a federated imageboard that spans across several networks including tor, i2p and anonet. There are no central servers so that as long as 1 server is left the forum will continue to function.
+
+Question: How is this different from *chan?
+NNTPChan is by design invulnerable to global censorship. All moderation is local to each server.
+
+Question: How does moderation work then?
+Moderation is done with our special tripcodes (ed25519-sha512 signed posts). Anyone can give moderation suggestions, but that doesn't mean anyone will accept them. Those who trust the actions of a moderator can have their frontend whitelist the moderation actions and have them performed without oversight by another moderator.
+
+Question: How can I remove content from nntpchan completely?
+‾\(._.)/‾ I don't know. You probably can't unless every server agrees to remove the content, even then, nothing prevents someone from reposting it. You can't delete what you post on the internet.
+
+Question: Do you allow child porn?
+No, fuck off.
+
+Question: Do you allow XYZ content?
+If it violates law or causes problems with my host, no. Otherwise, probably.
+
+Question: Someone posted something I don't like but it's not illegal
+That is not my problem. All posts on this site are the responsibility of the individual poster and not the administration of this server
+
+Question: I found a bug or I have a feature request where do I go?
+Links to source code above or post on overchan.overchan.
+
+Question: Contacts?
+this node: open a thread i guess
+nntpchan dev: `Please send any gripes/questions/inqueries/suggestions/complaints to ampernand [|at\] gmail {dot} com with subject starting with "nntpchan question"`
