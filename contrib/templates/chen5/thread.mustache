@@ -9,9 +9,8 @@
  - Replies , a list of all the replies or empty if none
  - Board , the name of the Board this thread is on
  - BoardURL , the url that points to the board index page
---}}<!doctype html><meta charset="utf-8"><meta name="viewport" content="initial-scale=1"><style>body{max-width:80ch;white-space:pre-wrap;word-break:break-word;font-family:monospace}*{max-width:100%}</style>
-<title>{{thread.OP.Subject}}</title>
+--}}<!doctype html><meta charset="utf-8"><meta name="viewport" content="initial-scale=1"><style>body{max-width:80ch;font-family:monospace}*{max-width:100%}</style><title>{{thread.OP.Subject}}</title>
 {{{thread.Navbar}}} <a href="{{thread.Prefix}}catalog-{{thread.Board}}.html">catalog</a>
-
-{{{thread.OP.RenderPost}}}{{#thread.Replies}}{{{RenderPost}}}{{/thread.Replies}}
-{{{form}}}
+<br>
+<br>{{{thread.OP.RenderPost}}}{{#thread.Replies}}{{{RenderPost}}}{{/thread.Replies}}
+<br>{{{form}}}

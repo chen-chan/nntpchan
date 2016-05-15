@@ -10,10 +10,9 @@
   - Board ( the name of the board )
   - Navbar ( a function that renders the navbar, should not be escaped )
   - Threads ( a list of Thread Models with the last few replies )
-}}<!doctype html><meta charset="utf-8"><meta name="viewport" content="initial-scale=1"><style>body{max-width:80ch;white-space:pre-wrap;word-break:break-word;font-family:monospace}*{max-width:100%}</style><title>{{board.Board}}</title>
-
-{{{board.Navbar}}} <a href="{{board.Prefix}}catalog-{{board.Name}}.html">catalog</a><br>
-{{{form}}}
-{{#board.Threads}}<hr>{{{OP.Truncate.RenderPost}}}{{#Truncate.Replies}}{{{Truncate.RenderPost}}}{{/Truncate.Replies}}{{/board.Threads}}
-<a href="{{board.Prefix}}catalog-{{board.Name}}.html">{{#i18n.Translations}}{{catalog_label}}{{/i18n.Translations}}</a> {{#board.PageList }}[<a href="{{LinkURL}}"> {{Text}} </a>]  {{/ board.PageList }}
+}}<!doctype html><meta charset="utf-8"><meta name="viewport" content="initial-scale=1"><style>body{max-width:80ch;font-family:monospace}*{max-width:100%}</style><title>{{board.Board}}</title>
+{{{board.Navbar}}} <a href="{{board.Prefix}}catalog-{{board.Name}}.html">catalog</a>{{{form}}}
+<br>
+<br>{{#board.Threads}}<hr>{{{OP.Truncate.RenderPost}}}{{#Truncate.Replies}}{{{Truncate.RenderPost}}}{{/Truncate.Replies}}{{/board.Threads}}
+<br><a href="{{board.Prefix}}catalog-{{board.Name}}.html">{{#i18n.Translations}}{{catalog_label}}{{/i18n.Translations}}</a> {{#board.PageList }}[<a href="{{LinkURL}}"> {{Text}} </a>]  {{/ board.PageList }}
 

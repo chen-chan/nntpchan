@@ -1,8 +1,9 @@
-<!doctype html><meta charset="utf-8"><meta name="viewport" content="initial-scale=1"><style>body{max-width:80ch;white-space:pre-wrap;word-break:break-word;font-family:monospace}*{max-width:100%}</style>
-<title>try again</title>
-<form action="{{post_url}}" enctype="multipart/form-data" name="post" method="post">{{{csrf}}}<input type="hidden" name="reference" value="{{reference}}" id="postform_reference"><table>
+<!doctype html><meta charset="utf-8"><meta name="viewport" content="initial-scale=1"><style>body{max-width:80ch;font-family:monospace}*{max-width:100%}</style><title>try again</title>
+<form action="{{post_url}}" enctype="multipart/form-data" name="post" method="post">{{{csrf}}}<input type="hidden" name="reference" value="{{reference}}" id="postform_reference">
+<table>
 <tr><td>text</td><td><textarea id="postform_message" name="message" cols=40 rows=5></textarea></td></tr>
 <tr><td>subject</td><td><input type="text" name="subject" value=""> <input class="postform_attachment" id="postform_attachments" type="file" name="attachment_uploaded" multiple></td></tr>
 <tr><td>name</td><td><input type="text" name="name" value=""> <input type="checkbox" name="dubs">dubs ezmode</td></tr>
 <tr><td>captcha</td><td><input type="text" name="captcha" autocomplete="off"> <input type="submit" value="{{button}}" class="button" id="postform_submit"></td></tr></table>
-<img id="captcha_img" src="{{prefix}}captcha/img" alt="captcha"></form>
+<img id="captcha_img" src="{{prefix}}captcha/img" alt="captcha">
+</form>
