@@ -23,6 +23,7 @@ srndv2
 
 # private key
 *.key
+*.txt
 
 # certificates
 certs
@@ -30,3 +31,11 @@ certs
 
 rebuild.sh
 vendor
+.gx
+
+# generated js
+contrib/static/nntpchan.js
+contrib/static/miner-js.js
+
+#docs trash
+doc/.trash

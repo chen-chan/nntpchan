@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"gx/ipfs/QmaNuKBcG3hb5YJ4xpeipdX3t2Fw6pwZJSnpvsfn9Zj1tm/srndv2/src/srnd"
+	"gx/ipfs/QmPAqM7anxdr1ngPmJz9J9AAxDLinDz2Eh9aAzLF9T7LNa/srndv2/src/srnd"
 	"log"
 	"os"
 	"os/signal"
@@ -17,7 +17,7 @@ func main() {
 		if action == "setup" {
 			log.Println("Setting up SRNd base...")
 			daemon.Setup()
-			log.Println("Setup Done")
+			log.Println("\nSetup Completed.")
 		} else if action == "run" {
 			log.Printf("Starting up %s...", srnd.Version())
 			daemon.Setup()
