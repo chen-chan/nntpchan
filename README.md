@@ -19,7 +19,15 @@ Below is a list of known NNTPChan nodes:
 
 1. [2hu-ch.org](https://2hu-ch.org)
 2. [nsfl.tk](https://nsfl.tk)
-3. [i2p.rocks](https://i2p.rocks/ib/)
+3. [gchan](https://gchan.xyz/)
+
+Tor node list:
+
+1. [textpunk](http://ucavviu7wl6azuw7.onion/)
+2. [chan](http://ev7fnjzjdbtu3miq.onion/)
+3. [oniichan](http://sfw.oniichanylo2tsi4.onion/)
+
+
 
 ##Support
 
@@ -36,4 +44,4 @@ Bitcoin: [15yuMzuueV8y5vPQQ39ZqQVz5Ey98DNrjE](bitcoin://15yuMzuueV8y5vPQQ39ZqQVz
 
 ##Acknowledgements
 
-* [Deavmi](deavmi.carteronline.net/~deavmi) - Making the documentation beautiful.
+* [Deavmi](https://deavmi.carteronline.net/) - Making the documentation beautiful.

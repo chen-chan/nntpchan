@@ -15,6 +15,7 @@ allow_anon_attachments=0
 allow_attachments=1
 require_tls=1
 anon_nntp=0
+feeds=/etc/nntpchan/feeds.d
 
 [pprof]
 enable=0
@@ -95,7 +96,7 @@ This is where you put the address and port that you would like the NNTP server t
 
 ####allow_attachments
 
-* When this is set to `1` posters my attach images to their posts.
+* When this is set to `1` posters may attach images to their posts.
 * When this is set to `0` posters may not attach images to their posts.
 
 ####require_tls
@@ -105,8 +106,12 @@ This is where you put the address and port that you would like the NNTP server t
 
 ####anon_nntp
 
-* When this is set to `1` bluh.
-* When this is set to `0` bluh.
+* When this is set to `1`, the SRNdv2 server will send unauthenticated peers its articles.
+* When this is set to `0`, peers will need to be authenticated to sync articles.
+
+####feeds
+* Feeds configurations can optionally be stored in a directory of your choosing (the default is `feeds.d` in the working directory). Any ini files located in this directory will be loaded.
+
 
 ##`[pprof]`
 
@@ -114,9 +119,21 @@ All pprof-related settings.
 
 ####enable
 
-* When this is set to `1` bluh.
-* When this is set to `0` bluh.
+* When this is set to `1` pprof is enabled.
+* When this is set to `0` pprof is disabled.
 
 ####bind
 
-FIXME
+* Bind to an address and port for use with `go tool pprof`
+
+##`[frontend]`
+
+#####minimize_html
+* `0`: do not minimize HTML
+* `1`: minimize HTML
+
+##Placing configuration elsewhere
+
+By default, `srnd.ini` must be placed in the working directory (wherever you have the `srndv2` binary). If you want to place the `srnd.ini` config file elsewhere, you can define an environment varialbe in the `~/.profile` for the user that runs `srndv2`. 
+
+If you would like to use, for example, `/etc/nntpchan/my_srnd_config.ini`, simply add `export SRND_INI_PATH=/etc/nntpchan/my_srnd_config.ini` to `~/.profile`.
