@@ -753,6 +753,7 @@ ConvoBar.prototype.registerConvo = function(msgid, data) {
     msgid: data.Message_id,
     id: max_id + 1,
     posts: [],
+    group: data.Newsgroup,
     ShortHash: data.ShortHash,
     select: function() {
       console.log("selected convo "+msgid);
@@ -993,6 +994,11 @@ Chat.prototype.sendInput = function(event) {
     var message = inputElem.message.value;
     var name = inputElem.name.value;
     var convo = self.chatElems.convobar.active;
+    var board;
+    if(convo)
+      board = self.chatElems.convobar.holder[convo].group;
+    if (!board) board = "overchan.random";
+    console.log(board);
     var subject = self.chatElems.input.subject.value;
     self.readImage(inputElem.file, function(fdata, fname, ftype) {
       if (fdata) {
@@ -1001,6 +1007,7 @@ Chat.prototype.sendInput = function(event) {
           subject: subject,
           name: name,
           reference: convo,
+          newsgroup: board,
           files: [{name: fname, data: fdata, type: ftype}],
         }});
       } else {
@@ -1009,6 +1016,7 @@ Chat.prototype.sendInput = function(event) {
           message: message,
           reference: convo,
           name: name,
+          newsgroup: board,
         }});
       }
       inputElem.file.value = "";
