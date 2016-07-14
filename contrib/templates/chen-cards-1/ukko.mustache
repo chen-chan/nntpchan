@@ -1,0 +1,24 @@
+{{!--
+  ukko.mustache -- overboard, contains the last threads posted regardless of newsgroup
+  template parameters:
+  - prefix ( site prefix )
+  - threads ( a list of Thread Models that represent the latest threads )
+--}}
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1">
+<link rel="stylesheet" href="/static/chen-cards-1.css">
+<title>{{#i18n.Translations}}{{overboard_title}}{{/i18n.Translations}}</title>
+<div class="navbar">
+  {{{navbar}}}
+</div>
+{{#threads}}
+  <div class="thread">
+    <div class="postedon">
+      {{#i18n.Translations}}{{posted_on_label}}{{/i18n.Translations}}
+      <a href="{{{BoardURL}}}">{{OP.Board}}</a>
+    </div>
+    {{{OP.Truncate.RenderPost}}}
+    {{#Truncate.Replies}}{{{Truncate.RenderPost}}}{{/Truncate.Replies}}
+  </div>
+{{/threads}}

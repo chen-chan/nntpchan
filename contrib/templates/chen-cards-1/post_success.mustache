@@ -1,0 +1,8 @@
+{{!
+ post_success.mustache -- shown when we do a successful post
+ template parameters:
+ - redirect_url ( the url of the next page we should redirect to )
+ - message_id ( the value of the Message-ID header in the post we made, the truncated sha1 of this is the >>posthash )
+ }}<!doctype html><meta charset="utf-8"><meta name="viewport" content="initial-scale=1"><style>body{max-width:80ch;font-family:monospace}*{max-width:100%}</style><title>post success</title>
+<meta http-equiv="refresh" content="4; {{redirect_url}}">
+{{#i18n.Translations}}{{posted_as_label}}{{/i18n.Translations}} {{message_id}}

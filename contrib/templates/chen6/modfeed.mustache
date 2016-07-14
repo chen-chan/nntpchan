@@ -1,0 +1,40 @@
+<!doctype html><meta charset="utf-8"><meta name="viewport" content="initial-scale=1">
+<title>{{#i18n.Translations}}{{modpage_title}}{{/i18n.Translations}}</title>
+<style>body{font-family:monospace;overflow-wrap:break-word}</style>
+<!-- yes it uses js -->
+<script type="text/javascript" src="{{prefix}}static/nntpchan.js"></script>
+<script type="text/javascript" src="{{prefix}}static/mod.js"></script>
+<script type="text/javascript" src="{{prefix}}static/feed.js"></script>
+<body onload="main()">
+  <div id="nntpchan_mod_result"></div>
+  <div class="nntpchan_feed_pane">
+    <b>add feed</b><br>
+    <label for="add_feed_host">Host</label>
+    <input id="add_feed_host" />
+    <label for="add_feed_host">Port</label>
+    <input id="add_feed_port" />
+    <label for="add_feed_name">Name</label>
+    <input id="add_feed_name" />
+    <button onclick="nntp_feed_add()">Add</button>
+  </div>
+  <br>
+  <div class="nntpchan_feed_pane">
+    <b> remove feed</b><br>
+    <label for="del_feed_name">Name</label>
+    <input id="del_feed_name" />
+    <button onclick="nntp_feed_del()">Remove</button>
+  </div>
+  <br>
+  <div class="nntpchan_feed_pane">
+    <b>Sync Feeds</b><br>
+    <button onclick="nntpchan_admin('feed.sync')">Sync All</button>
+  </div>
+  <br>
+  <div id="nntpchan_feed_result"></div>
+  <div id="nntpchan_feeds"></div>
+  <script>
+    nntp_feed_update();
+  </script>
+  <noscript>
+    <b>{{#i18n.Translations}}{{nojs_info}}{{/i18n.Translations}}</b>
+  </noscript>

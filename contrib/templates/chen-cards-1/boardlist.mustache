@@ -1,0 +1,10 @@
+{{!
+  boardlist.mustache -- full list of every board
+  template parameters:
+  - graph ( a list of 4 string tuples: (board, posts_per_hour, posts_per_day, total_posts) )
+  - frontend ( the name of the frontend )
+  - prefix ( the site's prefix )
+}}<!doctype html><meta charset="utf-8"><meta name="viewport" content="initial-scale=1"><style>body{max-width:80ch;font-family:monospace}*{max-width:100%}table{border-collapse:collapse}td,th{border:1px solid gray}</style><title>{{frontend}} {{#i18n.Translations}}{{board_list_title}}{{/i18n.Translations}}</title>
+{{{navbar}}}
+<br>
+<br><table><tr><th>{{#i18n.Translations}}{{board_label}}{{/i18n.Translations}}<th>{{#i18n.Translations}}{{pph_label}}{{/i18n.Translations}}<th>{{#i18n.Translations}}{{ppd_label}}{{/i18n.Translations}}<th>{{#i18n.Translations}}{{total}}{{/i18n.Translations}}{{#graph}}<tr><td><a href="{{prefix}}{{Board}}-0.html">{{Board}}</a><td>{{Hour}}<td>{{Day}}<td>{{All}}{{/graph}}</table>

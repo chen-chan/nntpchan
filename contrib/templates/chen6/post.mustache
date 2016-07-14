@@ -1,0 +1,4 @@
+<div class="head" id="{{post.PostHash}}">{{post.ShortHash}} {{post.Subject}} {{post.DateRFC}} {{post.Name}} {{{post.Pubkey}}} <a href="{{post.PostURL}}">{{post.MessageID}}</a> </div>{{{post.RenderBody}}}
+{{{!--{{#post.Attachments}}<a href="{{Source}}" title="{{Filename}}" target="_blank">attachment</a>[<a href="{{Source}}" download="{{Filename}}">dl</a>]: {{Filename}}<br>{{/post.Attachments}}--}}}
+{{#post.Attachments}}<a href="{{Source}}" title="{{Filename}}" target="_blank"><img src="{{Thumbnail}}" alt="{{Filename}}"></a> {{/post.Attachments}}
+<br>

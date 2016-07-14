@@ -1,0 +1,35 @@
+ 
+/* <link rel="stylesheet" href="/static/chen-cards-1.css"> */
+
+body {
+    background:#fafafa;
+    position:auto;
+    font-family:monospace;
+}
+
+.thread {
+    background:#fff;
+    /*display:inline-block;*/
+    box-shadow:0.1ch 0.1ch 0.3ch 0.05ch rgba(0,0,0,0.25);
+    border-radius:0.25ch;
+    max-width:81ch;
+    margin:1em 0 1em 0;
+}
+
+.post {
+    border-bottom: 1px solid #e0e0e0;
+    padding:1ch;
+}
+
+.post .head {
+    opacity:0.5;
+    font-size:small;
+}
+.post .head .hash {
+    font-weight:bold;
+    font-size:normal;
+}
+
+.post .head .msgid, .post .head .date{
+    font-size:smaller;
+}

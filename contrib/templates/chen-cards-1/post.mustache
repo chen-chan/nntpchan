@@ -1,0 +1,19 @@
+<div class="post">
+  <div class="head" id="{{post.PostHash}}">
+    <span class="hash">{{post.ShortHash}}</span>
+    <span class="subject">{{post.Subject}}</span>
+    <span class="date">{{post.DateRFC}}</span>
+    <span class="name">{{post.Name}}</span>
+    <span class="msgid">{{post.MessageID}}</span>
+    {{{post.Pubkey}}}
+    <a href="{{post.PostURL}}">[reply]</a>
+    </div>
+  {{{post.RenderBody}}}
+  <div class="attachments">
+    {{#post.Attachments}}
+    <a class="file" href="{{Source}}" title="{{Filename}}" target="_blank">
+      <img src="{{Thumbnail}}" alt="{{Filename}}">
+    </a>
+    {{/post.Attachments}}
+  </div>
+</div>

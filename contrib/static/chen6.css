@@ -1,0 +1,60 @@
+/*
+<link rel="stylesheet" href="{{prefix}}static/chen6.css">
+<style>
+  body{max-width:80ch;font-family:monospace}
+  *{max-width:100%}
+  table{border-collapse:collapse}
+  td,th{border:1px solid gray}
+</style>
+*/
+
+/*
+body *,body{font-family:monospace;overflow-wrap:break-word;background:#000;color:#999}
+a{color:inherit}
+hr{border:solid .5em #630;margin:0;padding:0}
+.head *,.postedon{color:#630}
+.subject{font-weight:bold}
+table{border-collapse:collapse}
+td,th{border:1px solid #630}
+.memearrows,.backlink{color:#360}
+form table,form th,form td{border:none}
+input[type="text"],input[type="password"],textarea{border:1px solid #630}
+button,input[type="submit"]{border: dotted 1px #630}
+button:hover,input[type="submit"]:hover{background:#630;color:#000}
+*/
+
+/*
+body{font-family:monospace;overflow-wrap:break-word}
+a{color:inherit}
+a{color:#036}a:visited{color:#306}
+.head,.postedon{opacity:0.5}
+table{border-collapse:collapse}td,th{border:1px solid #999}
+.memearrows,.backlink{color:#360}
+form table,form th,form td{border:none}
+*/
+
+/*
+<style>body{font-family:monospace;overflow-wrap:break-word}.head,.postedon{opacity:0.5}.memearrows,.backlink{color:#360}</style>
+*/
+
+/*
+body{font-family:monospace;font-size:10pt;overflow-wrap:break-word;background:#003;color:#ccc}
+a{color:inherit}
+.head,.postedon{color:#960}
+.subject{font-weight:bold}
+table{border-collapse:collapse}
+td,th{border:1px solid #fff}
+.memearrows,.backlink{color:#9f9}
+form table,form th,form td{border:none}
+*/
+
+/*
+body{font-family:monospace;overflow-wrap:break-word;background:#003;color:#ccc}
+a{color:inherit}
+.head,.postedon{color:#630}
+.subject{font-weight:bold}
+table{border-collapse:collapse}
+td,th{border:1px solid #999}
+.memearrows,.backlink{color:#060}
+form table,form th,form td{border:none}
+*/

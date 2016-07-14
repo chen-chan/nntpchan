@@ -1,0 +1,12 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1">
+<title>{{thread.OP.Subject}}</title>
+<style>body{font-family:monospace;overflow-wrap:break-word}.head,.postedon{opacity:0.5}.memearrows,.backlink{color:#360}</style>
+{{{thread.Navbar}}} <a href="{{thread.Prefix}}catalog-{{thread.Board}}.html">catalog</a>
+<hr>
+{{{thread.OP.RenderPost}}}{{#thread.Replies}}{{{RenderPost}}}{{/thread.Replies}}
+<br>
+{{{form}}}
+<hr>
+{{{thread.Navbar}}} <a href="{{thread.Prefix}}catalog-{{thread.Board}}.html">catalog</a>
