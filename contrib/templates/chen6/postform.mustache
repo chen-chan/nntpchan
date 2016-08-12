@@ -11,7 +11,7 @@
 <form action="{{post_url}}" enctype="multipart/form-data" name="post" method="post">
   {{{csrf}}}
   <input type="hidden" name="reference" value="{{reference}}" id="postform_reference">
-  <textarea id="postform_message" name="message" cols="80" rows="16"></textarea><br>
+  <textarea id="postform_message" name="message" cols="80" rows="8"></textarea><br>
   subject:<input type="text" name="subject" value=""> file:<input class="postform_attachment" id="postform_attachments" type="file" name="attachment_uploaded" multiple><br>
   namefag:<input type="text" name="name" value=""> dubs:<input type="checkbox" name="dubs"><br>
   captcha:<input type="text" name="captcha" autocomplete="off"> <input type="submit" value="{{button}}" class="button" id="postform_submit"><br>
