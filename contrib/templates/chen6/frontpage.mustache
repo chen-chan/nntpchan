@@ -1,58 +1,60 @@
 <!doctype html><meta charset="utf-8"><meta name="viewport" content="initial-scale=1">
 <title>{{frontend}} on nntpchan</title>
-<style>body{font-family:monospace;overflow-wrap:break-word}.head,.postedon{opacity:0.5}table{border-collapse:collapse}td,th{border:1px solid #999}</style>
+<style>body{font-family:monospace;overflow-wrap:break-word}pre{margin:0;padding:0;white-space:pre-wrap}.head,.postedon{opacity:0.5}table{border-collapse:collapse}td,th{border:1px solid #999}</style>
 {{{navbar}}}{{{!-- <a href="{{prefix}}static/faq.html">FAQ</a>--}}}<hr>
-<br>{{frontend}} on nntpchan
-<br>
-<br>links to active nntpchan nodes:{{!-- template: <br><a href=""></a> --}}
-<br><a href="https://2hu-ch.org">https://2hu-ch.org</a>
-<br><a href="https://gchan.xyz/">https://gchan.xyz/</a>
-<br><a href="http://ucavviu6wl6azuw7.onion">http://ucavviu7wl6azuw7.onion</a>
-<br><a href="http://oniichanylo2tsi4.onion">http://oniichanylo2tsi4.onion</a>
-<br><a href="http://ev7fnjzjdbtu3miq.onion">http://ev7fnjzjdbtu3miq.onion</a>
-<br><a href="http://7xnxdzyzegpsqus4.onion">http://7xnxdzyzegpsqus4.onion</a>
-<br><a href="http://f2bksxtwzmst2dhx.onion">http://f2bksxtwzmst2dhx.onion</a>
-<br><a href="http://emvykufthqjgudpldo7tj26j57z4q2b6at6vmrfo6jxnvozmultq.b32.i2p">http://emvykufthqjgudpldo7tj26j57z4q2b6at6vmrfo6jxnvozmultq.b32.i2p</a>
-<br><a href="http://g7c54d4b7yva4ktpbaabqeu2yx6axalh4gevb44afpbwm23xuuya.b32.i2p">http://g7c54d4b7yva4ktpbaabqeu2yx6axalh4gevb44afpbwm23xuuya.b32.i2p</a>
-<br>
-<br>source code: the <a href="https://github.com/majestrate/nntpchan/">frontend</a>, the <a href="https://github.com/majestrate/srndv1/">core</a> and the <a href="https://github.com/chen-chan/nntpchan/tree/master/contrib/templates/chen6">template</a> used on this node
-<br>
-<br>IRC: rizon.net#nntpchan and irc2p#overchan
-<br>URC: allyour4nert7pkh.onion#overchan
-<br>
-<br>{{{postsgraph}}}
-<br>
-<br>if you want your post seen across all of nntpchan, don't put files in it. if you post files from this node, it's very likely the entire post won't show up on clearnet nodes because they fear the CP (not that CP won't be nuked here or anything). currently, most tor/i2p nodes allow files between each other.
-<br>
-<br>Question: Max file size?
-<br>Here it's 8M. Can be different on other nodes.
-<br>
-<br>Question: What is nntpchan?
-<br>NNTPCchan is a federated imageboard that spans across several networks including tor, i2p and anonet. There are no central servers so that as long as 1 server is left the forum will continue to function.
-<br>
-<br>Question: How is this different from *chan?
-<br>NNTPChan is by design invulnerable to global censorship. All moderation is local to each server.
-<br>
-<br>Question: How does moderation work then?
-<br>Moderation is done with our special tripcodes (ed25519-sha512 signed posts). Anyone can give moderation suggestions, but that doesn't mean anyone will accept them. Those who trust the actions of a moderator can have their frontend whitelist the moderation actions and have them performed without oversight by another moderator.
-<br>
-<br>Question: How can I remove content from nntpchan completely?
-<br>‾\(._.)/‾ I don't know. You probably can't unless every server agrees to remove the content, even then, nothing prevents someone from reposting it. You can't delete what you post on the internet.
-<br>
-<br>Question: Do you allow child porn?
-<br>No, fuck off.
-<br>
-<br>Question: Do you allow XYZ content?
-<br>If it violates law or causes problems with my host, no. Otherwise, probably.
-<br>
-<br>Question: Someone posted something I don't like but it's not illegal
-<br>That is not my problem. All posts on this site are the responsibility of the individual poster and not the administration of this server
-<br>
-<br>Question: I found a bug or I have a feature request where do I go?
-<br>Links to source code above or post on overchan.overchan.
-<br>
-<br>Question: Contacts?
-<br>- this node: open a thread i guess
-<br>- nntpchan dev: `Please send any gripes/questions/inqueries/suggestions/complaints to ampernand [|at\] gmail {dot} com with subject starting with "nntpchan question"`
-<br>
-<br><hr>{{{navbar}}}{{{!-- <a href="{{prefix}}static/faq.html">FAQ</a>--}}}
+<pre>
+
+{{frontend}} on nntpchan
+
+links to active nntpchan nodes:{{!-- template: <br><a href=""></a> --}}
+<a href="https://2hu-ch.org">https://2hu-ch.org</a>
+<a href="https://gchan.xyz/">https://gchan.xyz/</a>
+<a href="http://ucavviu6wl6azuw7.onion">http://ucavviu7wl6azuw7.onion</a>
+<a href="http://oniichanylo2tsi4.onion">http://oniichanylo2tsi4.onion</a>
+<a href="http://ev7fnjzjdbtu3miq.onion">http://ev7fnjzjdbtu3miq.onion</a>
+<a href="http://7xnxdzyzegpsqus4.onion">http://7xnxdzyzegpsqus4.onion</a>
+<a href="http://f2bksxtwzmst2dhx.onion">http://f2bksxtwzmst2dhx.onion</a>
+<a href="http://emvykufthqjgudpldo7tj26j57z4q2b6at6vmrfo6jxnvozmultq.b32.i2p">http://emvykufthqjgudpldo7tj26j57z4q2b6at6vmrfo6jxnvozmultq.b32.i2p</a>
+<a href="http://g7c54d4b7yva4ktpbaabqeu2yx6axalh4gevb44afpbwm23xuuya.b32.i2p">http://g7c54d4b7yva4ktpbaabqeu2yx6axalh4gevb44afpbwm23xuuya.b32.i2p</a>
+
+source code: the <a href="https://github.com/majestrate/nntpchan/">frontend</a>, the <a href="https://github.com/majestrate/srndv1/">core</a> and the <a href="https://github.com/chen-chan/nntpchan/tree/master/contrib/templates/chen6">template</a> used on this node
+
+IRC: rizon.net#nntpchan and irc2p#overchan
+URC: allyour4nert7pkh.onion#overchan
+
+</pre>{{{postsgraph}}}<pre>
+
+if you want your post seen across all of nntpchan, don't put files in it. if you post files from this node, it's very likely the entire post won't show up on clearnet nodes because they fear the CP (not that CP won't be nuked here or anything). currently, most tor/i2p nodes allow files between each other.
+
+Question: Max file size?
+Here it's 8M. Can be different on other nodes.
+
+Question: What is nntpchan?
+NNTPCchan is a federated imageboard that spans across several networks including tor, i2p and anonet. There are no central servers so that as long as 1 server is left the forum will continue to function.
+
+Question: How is this different from *chan?
+NNTPChan is by design invulnerable to global censorship. All moderation is local to each server.
+
+Question: How does moderation work then?
+Moderation is done with our special tripcodes (ed25519-sha512 signed posts). Anyone can give moderation suggestions, but that doesn't mean anyone will accept them. Those who trust the actions of a moderator can have their frontend whitelist the moderation actions and have them performed without oversight by another moderator.
+
+Question: How can I remove content from nntpchan completely?
+‾\(._.)/‾ I don't know. You probably can't unless every server agrees to remove the content, even then, nothing prevents someone from reposting it. You can't delete what you post on the internet.
+
+Question: Do you allow child porn?
+No, fuck off.
+
+Question: Do you allow XYZ content?
+If it violates law or causes problems with my host, no. Otherwise, probably.
+
+Question: Someone posted something I don't like but it's not illegal
+That is not my problem. All posts on this site are the responsibility of the individual poster and not the administration of this server
+
+Question: I found a bug or I have a feature request where do I go?
+Links to source code above or post on overchan.overchan.
+
+Question: Contacts?
+- this node: open a thread i guess
+- nntpchan dev: `Please send any gripes/questions/inqueries/suggestions/complaints to ampernand [|at\] gmail {dot} com with subject starting with "nntpchan question"`
+
+</pre><hr>{{{navbar}}}{{{!-- <a href="{{prefix}}static/faq.html">FAQ</a>--}}}
