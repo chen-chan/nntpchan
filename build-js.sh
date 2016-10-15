@@ -1,71 +1,79 @@
 #!/usr/bin/env bash
-root=$(readlink -e $(dirname $0))
+root=$(readlink -e "$(dirname "$0")")
 set -e
 if [ "x" == "x$root" ] ; then
     root=$PWD/${0##*}
 fi
-cd $root
+cd "$root"
 
 if [ -z "$GOPATH" ]; then
 	export GOPATH=$root/go
-	mkdir -p $GOPATH
+	mkdir -p "$GOPATH"
 fi
 
-if [ ! -f $GOPATH/bin/minify ]; then
-  echo "set up minifiy"  
+if [ ! -f "$GOPATH/bin/minify" ]; then
+  echo "set up minifiy"
 	go get -v github.com/tdewolff/minify/cmd/minify
 fi
-if [ ! -f $GOPATH/bin/gopherjs ]; then
-        echo "set up gopherjs"
-        go get -v -u github.com/gopherjs/gopherjs
-fi
-
-# build cuckoo miner
-#echo "Building cuckoo miner"
-#go get -v -u github.com/ZiRo-/cuckgo/miner_js
-#$GOPATH/bin/gopherjs -m -v build github.com/ZiRo-/cuckgo/miner_js
-#mv ./miner_js.js ./contrib/static/miner-js.js
-#rm ./miner_js.js.map
 
 outfile=$PWD/contrib/static/nntpchan.js
 
 lint() {
-    if [ "x$(which jslint)" == "x" ] ; then
+    if [ "$(which jslint)" == "" ] ; then
         # no jslint
         true
     else
         echo "jslint: $1"
-        jslint --browser $1
+        jslint --browser "$1"
     fi
 }
 
 mini() {
     echo "minify $1"
     echo "" >> $2
-    echo "/* local file: $1 */" >> $2
-    $GOPATH/bin/minify --mime=text/javascript >> $2 < $1
+    echo "/* begin $1 */" >> $2
+    "$GOPATH/bin/minify" --mime=text/javascript >> $2 < $1
+    echo "/* end $1 */" >> $2
 }
 
 # do linting too
 if [ "x$1" == "xlint" ] ; then
     echo "linting..."
     for f in ./contrib/js/*.js ; do
-        lint $f
+        lint "$f"
     done
 fi
 
-echo -e "//For source code and license information please check https://github.com/majestrate/nntpchan \n" > $outfile
+rm -f "$outfile"
+
+echo '/*' >> $outfile
+echo ' * For source code and license information please check https://github.com/majestrate/nntpchan' >> $outfile
+brandingfile=./contrib/branding.txt
+if [ -e "$brandingfile" ] ; then
+    echo ' *' >> $outfile
+    while read line; do
+        echo -n ' * ' >> $outfile;
+        echo $line >> $outfile;
+    done < $brandingfile;
+fi
+echo ' */' >> $outfile
 
 if [ -e ./contrib/js/contrib/*.js ] ; then
     for f in ./contrib/js/contrib/*.js ; do
-        mini $f $outfile
+        mini "$f" "$outfile"
     done
 fi
-    
-mini ./contrib/js/main.js_ $outfile
+
+mini ./contrib/js/entry.js "$outfile"
 
 # local js
-for f in ./contrib/js/*.js ; do
-  mini $f $outfile
+for f in ./contrib/js/nntpchan/*.js ; do
+  mini "$f" "$outfile"
 done
+
+# vendor js
+for f in ./contrib/js/vendor/*.js ; do
+  mini "$f" "$outfile"
+done
+
 echo "ok"
