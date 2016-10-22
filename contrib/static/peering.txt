@@ -1,0 +1,59 @@
+Peering with the NNTPChan server at <ucavviu7wl6azuw7.onion>. Dating 2016-10-22.
+
+Put the following public key into your /certs/ directory as a ".crt" file.
+-----BEGIN CERTIFICATE-----
+MIIFWTCCA0GgAwIBAgIgf6Z8y5ckqVVUrL31HgjwzeZU2kQnzS+qGSigE6ZJlY8w
+DQYJKoZIhvcNAQELBQAwNDERMA8GA1UEChMIb3ZlcmNoYW4xHzAdBgNVBAMTFnVj
+YXZ2aXU3d2w2YXp1dzcub25pb24wIBcNMTYwMTEzMTcyNjAxWhgPOTAwNTAxMDEw
+MTAxMDFaMDQxETAPBgNVBAoTCG92ZXJjaGFuMR8wHQYDVQQDExZ1Y2F2dml1N3ds
+NmF6dXc3Lm9uaW9uMIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAr8xw
+YNmY+I27+B6XowyXEvELbYTUezbD4jktY9tiIpwYSY2SJb7+IaZViGWFU3rha1gZ
+DCARqzzCneb3QQHtAPGPvw6uYqJqiEYArcKlxtLFrvmsRDxdajs+UojwiJQYU0dA
+PlvTqv/ZlWW/I9eGywhhx+QI1FwDOzRjMjsu6/JZKie1mu34Qd/ZS6gldpnu93id
+u+MCMiIr67smAovwFU13z43PJ7y7ks782IGWc2v1Hvophg6J888LXdBGe/SuNpzf
+yAxaS+FggrCqTD6fsBXwSVNI5FklW9D6cUnuW12zW7VRob/aW/8S7wjsrg3WURsd
+sc/iPKp5C4mp3rCnqkfz4LudcWhdzxoIP7lmw30JRChiRbPMaPSwKSnU//EbU3yq
+tQzpu98QyHh08+RmP6ujOohAjguNNPhSXxq2tj9nEniGxo66iXLlRnGNuWhb+UsF
+50FxnPVwbdYp3en++hl6r69MGTV1KFNZAJaW2Ql6fUWdnqDDVeTiLyBxnu56YWzk
+RUYJ8toT+TozKOo/n6Mj/jzK3UgxLFF5dOF+YTmFsuZ+oO0rbplZLqujP/m0mBae
+yWa/evkDaVW6fyEJd0ooOoxlgSPBl9ivtFXZej79TdVxlI90vnkDz4n2Y+M7TXY2
+g3cxDgWawWHmPxj0opu5+cXaz+f8N0ondfkKlDkCAwEAAaNVMFMwHQYDVR0lBBYw
+FAYIKwYBBQUHAwEGCCsGAQUFBwMCMA8GA1UdEwEB/wQFMAMBAf8wIQYDVR0RBBow
+GIIWdWNhdnZpdTd3bDZhenV3Ny5vbmlvbjANBgkqhkiG9w0BAQsFAAOCAgEAHurK
+ePNkHdUHeZUueTgsiq1GYzHT7VjoZ3tirI5JvQ55K3fL9ytOHDjpETai/M1CaAVg
+X89tTUNgMg5uHQGMwVFdcedIPdCsEQXif8nrfaVfhWRAMs0PiNELwizK3RYoEJYO
+Qjjir5AJRKQSkPkTGISVqw4btMIG/yvF2DBFSAZGmejGm1JW6dWgBCW4Pk67dXqN
+VAp6jk6z8gFBgVdYGIlBy67JUTZNWrQzN9bq+EL9gEBacWbVScZkEAh50csWzz6P
+UK5u9QNkogShxXe2ceZdif4bgv0lZVepJSOnwtv0KjgGxRfDavrK8bQOyrmBXU10
+ts4Sb+y9SRqBIrDk5aH59qyN0IHT/ZVY6KpM5i/EnVdOB2GgXmfPuA85tnE3GROc
+t15b3rj3Pq0pc6MNMCP3Ux1ujHuF9Ldth0Op5XNqM+Wd5Oi7JbjmGlk9kVlA3lDA
+zEqdGsIknGRKsX91+2DPOwwR7K9eQUS/+VpqdDQc7WcthbG8dZutcQRnWdqqZTfb
+UEREwgt9w9172rfUdjGr5lyckErFuV5eHkVaFr1RpzP1Avhb1GywVxvlZ9QDoG/4
+E2uMGZDnLNEnrMyIxEO4p6XBgxKoDbMDYD63r4cEgFexDakFvqwUeACAtp7mf3Ly
+5LitBxa2ZazEI/eNzmPc/+yTYa7NGmMW5CwzKN4=
+-----END CERTIFICATE-----
+
+Put your own public key found in your /certs/ directory inside the /contrib/static/ directory. This will host it publicly at <yourwebsite.com/static/your-key-here>. I preferably want it on your website address in order to confirm that the key is indeed yours.
+
+Post the link to your public key somewhere I will read. For example in an already existing relevant thread or a new thread on the overchan.overchan board. Alongside the link, I also need the port your server is listening on for syncing. By default it's 1199 but if you changed it, don't forget to indicate that.
+
+At this point I can add you, but since my server is on Tor only, if you can't connect to Tor, you can't add me. I can connect to clearnet but I don't have a stable IP address for you to connect to because I'm behind NAT and dynamic IP and shit. Only one side adding another is still beneficial to the network so no worries. Note: Apparently posts will flow in 2 directions even if only 1 side added the other.
+
+However if your server can access Tor, my server is listening on <ucavviu7wl6azuw7.onion:1199>. To add me, you need to add a section like the following one to your /feeds.ini.
+
+[feed-ucavviu7wl6azuw7.onion]
+proxy-type=socks4a
+proxy-host=127.0.0.1
+proxy-port=9050
+host=ucavviu7wl6azuw7.onion
+port=1199
+sync=1
+
+[ucavviu7wl6azuw7.onion]
+overchan.*=1
+ctl=1
+
+After all this, restart the daemon and watch the output to see if it works.
+
+For more info refer to the official documentation <https://github.com/majestrate/nntpchan/blob/master/doc/feeds.md> or complain on NNTPChan boards.
+Note: It's also mirrored on <https://gitgud.io/uguu/nntpchan/> and <http://git.psii2pdloxelodts.onion/psi/nntpchan>
