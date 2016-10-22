@@ -8,7 +8,7 @@ cd "$root"
 
 tags=""
 
-help_text="usage: $0 [--disable-redis]"
+help_text="usage: $0 [--disable-neochan] [--enable-redis]"
 
 # check for help flags first
 for arg in "$@" ; do
@@ -25,9 +25,17 @@ ipfs="no"
 rebuildjs="yes"
 _next=""
 unstable="no"
+neochan="no"
+buildredis="no"
 # check for build flags
 for arg in "$@" ; do
     case $arg in
+        "--enable-redis")
+            buildredis="yes"
+            ;;
+        "--enable-neochan")
+            neochan="yes"
+            ;;
         "--unstable")
             unstable="yes"
             ;;
@@ -36,12 +44,6 @@ for arg in "$@" ; do
             ;;
         "--ipfs")
             ipfs="yes"
-            ;;
-        "--cuckoo")
-            cuckoo="yes"
-            ;;
-        "--disable-redis")
-            tags="$tags -tags disable_redis"
             ;;
         "--revision")
             _next="rev"
@@ -56,6 +58,10 @@ for arg in "$@" ; do
     esac
 done
 
+if [ "$buildredis" == "yes" ] ; then
+    tags="$tags -tags disable_redis"
+fi
+
 if [ "$rev" == "" ] ; then
     echo "revision not specified"
     exit 1
@@ -64,8 +70,13 @@ fi
 cd "$root"
 if [ "$rebuildjs" == "yes" ] ; then
     echo "rebuilding generated js..."
-    ./build-js.sh
+    if [ "$neochan" == "no" ] ; then
+        ./build-js.sh --disable-neochan
+    else
+        ./build-js.sh
+    fi
 fi
+
 unset GOPATH
 export GOPATH=$PWD/go
 mkdir -p "$GOPATH"
@@ -95,7 +106,7 @@ else
         cp "$GOPATH/bin/nntpchan" "$root"
         echo "built unstable, if you don't know what to do, run without --unstable"
     else
-        go get -u -v github.com/majestrate/srndv2
+        go get -u -v $tags github.com/majestrate/srndv2
         cp "$GOPATH/bin/srndv2" "$root"
         echo -e "Built\n"
         echo "Now configure NNTPChan with ./srndv2 setup"
