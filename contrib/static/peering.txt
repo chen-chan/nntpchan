@@ -1,4 +1,4 @@
-Peering with the NNTPChan server at <ucavviu7wl6azuw7.onion>. Dating 2016-10-22.
+Peering with the NNTPChan server at <ucavviu7wl6azuw7.onion>. Dating 2016-10-24.
 
 Put the following public key into your /certs/ directory as a ".crt" file.
 -----BEGIN CERTIFICATE-----
@@ -55,5 +55,4 @@ ctl=1
 
 After all this, restart the daemon and watch the output to see if it works.
 
-For more info refer to the official documentation <https://github.com/majestrate/nntpchan/blob/master/doc/feeds.md> or complain on NNTPChan boards.
-Note: It's also mirrored on <https://gitgud.io/uguu/nntpchan/> and <http://git.psii2pdloxelodts.onion/psi/nntpchan>
+For more info refer to the documentation in the source code.
