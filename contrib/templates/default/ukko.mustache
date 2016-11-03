@@ -22,20 +22,60 @@
     {{{navbar}}}
     <!-- end navbar -->
     <div class="board_header"> {{#i18n.Translations}}{{overboard_title}}{{/i18n.Translations}} </div>
+      <div id="ukko_paginator">
+        {{#prev}}
+          <span id="ukko_prev">
+            <a href="{{prefix}}ukko-{{no}}.html">previous</a>
+          </span>
+        {{/prev}}
+        {{#next}}
+          <span id="ukko_next">
+            <a href="{{prefix}}ukko-{{no}}.html">next</a>
+          </span>
+        {{/next}}
+      </div>
       <div id="ukko_threads">
         <pre><a href="{{prefix}}livechan/">livechan</a></pre>
       {{#threads}}
         <div class="thread" id="thread_{{OP.PostHash}}">
-	        <div class="ukko_thread_header">
-          <p>{{#i18n.Translations}}{{posted_on_label}}{{/i18n.Translations}} <a href="{{{BoardURL}}}"><span class="ukko_boardname">{{OP.Board}}</span></a></p>
+	        <div class="truncated_post">
+            <div>{{#i18n.Translations}}{{posted_on_label}}{{/i18n.Translations}} <a href="{{{BoardURL}}}"><span class="ukko_boardname">{{OP.Board}}</span></a></div>  
+            <div class="thread_header">
+              <span class="thread_posts">
+                {{PostCount}} posts
+              </span>
+              <span class="thread_images">
+                {{ImageCount}} images
+              </span>
+            </div>
+          {{#Truncate}}
+            {{{OP.RenderTruncatedPost}}}
+            <div class="thread_exclude_info">
+              <span class="thread_exclude_posts">{{MissingPostCount}} posts excluded</span>
+              <span class="thread_exclude_images">{{MissingImageCount}} images excluded</span>
+            </div>
+          </div>
+          {{#Replies}}
+            <div class="truncated_post">
+              {{{RenderTruncatedPost}}}
+            </div>
+          {{/Replies}}
         </div>
-          {{{OP.Truncate.RenderPost}}}
-          {{#Truncate.Replies}}
-            {{{Truncate.RenderPost}}}
-          {{/Truncate.Replies}}
-        </div>  
+          {{/Truncate}}
         <hr />  
       {{/threads}}
+      </div>
+      <div id="ukko_paginator">
+        {{#prev}}
+          <span id="ukko_prev">
+            <a href="{{prefix}}ukko-{{no}}.html">previous</a>
+          </span>
+        {{/prev}}
+        {{#next}}
+          <span id="ukko_next">
+            <a href="{{prefix}}ukko-{{no}}.html">next</a>
+          </span>
+        {{/next}}
       </div>
       <script type="text/javascript" >
           var prefix = "{{prefix}}";
