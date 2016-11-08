@@ -1,0 +1,50 @@
+{% extends "frontend/base.html" %}
+{% load chanup %}
+{% block title %} {{op.subject}} {% endblock %}
+{% block navbar_links %}
+<div class="navbar_link"><a href="{{op.newsgroup.get_absolute_url}}">back to {{op.newsgroup.name}}</a></div>
+{% endblock %}
+{% block content %}
+{% include "frontend/postform.html" %}
+<div id="{{op.posthash}}" class="thread">
+  <div class="post op">
+    <div class="post-header">
+      <div class="post-reply"><a href="{{op.get_absolute_url}}">[reply]</a></div>
+      <div class="post-cite" onclick="thread_citepost('{{op.posthash}}')">&gt;&gt;{{op.shorthash}}</div>
+      <div class="post-info">
+        <div class="post-name">{{op.name}}</div>
+        <div class="post-subject">{{op.subject}}</div>
+        <div class="post-date">{{op.postdate|date}}</div>
+      </div>
+    </div>
+    <div class="attachments">
+      {% for a in op.attachments.all %}
+      <a target="_blank" href="{{a.source}}"><img class="thumb" src="{{a.thumb}}"></img></a>
+      {% endfor %}
+    </div>
+    <pre class="postbody">{{op.message|memepost}}</pre>
+  </div>
+  {% for reply in op.get_all_replies %}
+  <div class="post reply" id="{{reply.posthash}}">
+    <div class="post-header">
+      <div class="post-reply"><a href="{{reply.get_absolute_url}}">[reply]</a></div>
+      <div class="post-cite" onclick="thread_citepost('{{reply.posthash}}')">&gt;&gt;{{reply.shorthash}}</div>
+      <div class="post-info">
+        <div class="post-name">{{reply.name}}</div>
+        <div class="post-subject">{{reply.subject}}</div>
+        <div class="post-date">{{reply.postdate|date}}</div>
+      </div>
+    </div>
+    <div class="attachments">
+      {% for a in reply.attachments.all %}
+      <a target="_blank" href="{{a.source}}"><img class="thumb" src="{{a.thumb}}"></img></a>
+      {% endfor %}
+    </div>
+    {% autoescape off %}
+    <pre class="postbody">{{reply.message|memepost}}</pre>
+    {% endautoescape %}
+  </div>
+  {% endfor %}
+</div>
+<hr />
+{% endblock %}

@@ -1,0 +1,43 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>{% block title %} nntpchan {% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+    <script type="text/javascript" src="{% static 'hooks.js' %}"></script>
+    <script type="text/javascript" src="{% static 'postform.js' %}"></script>
+    <script type="text/javascript" src="{% static 'banners.js' %}"></script>
+    <script type="text/javascript" src="{% static 'settings.js' %}"></script>
+    <script type="text/javascript" src="{% static 'captcha.js' %}"></script>
+    <script type="text/javascript" src="{% static 'cite.js' %}"></script>
+    {% block head %}{% endblock %}
+  </head>
+  <body>
+    <div id="wrapper">
+      <div id="navbar">
+        <div class="navbar left">
+          {% block navbar_frontpage %}<div id="navbar_frontpage"><a href="{% url 'frontend:frontpage' %}">nntpchan</a></div> |{% endblock %}
+          <div id="navbar_title">{% block navbar_title %}{% endblock %}</div>
+          <div id="navbar_links">{% block navbar_links %}{% endblock %}</div>
+        </div>
+        <div class="navbar right">
+          <div>{% block navbar_left %}| <a href="#" onclick="nntpchan_toggle_settings_pane()">settings</a>{% endblock %}</div>
+        </div>
+      </div>
+      <div id="content">
+        {% block content %}
+        {% endblock %}
+      </div>
+    </div>
+    <hr/>
+    <center>
+      <footer>
+        <p>All posts on this site are the responsibility of the individual poster and not the administration, pursuant to 47 U.S.C. § 230.</p>
+        <p>To make a DMCA request or report illegal content, please contact the administration</p>
+      </footer>
+    </center>
+    <script>
+      ready();
+    </script>
+  </body>
+</html>

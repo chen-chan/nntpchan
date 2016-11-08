@@ -1,0 +1,66 @@
+
+{% extends "frontend/base.html" %}
+{% load chanup %}
+{% block title %} {{name}} page {{page}} {% endblock %}
+{% block navbar_links %}
+  {% if prevpage %}
+<span class="navbar_link"><a href="{{prevpage}}">previous page</a></span> 
+  {% endif %}
+{% if nextpage %}
+  {% if prevpage %}|{% endif %}
+<span class="navbar_link"><a href="{{nextpage}}">next page</a></span>
+  {% endif %}
+{% endblock %}
+{% block content %}
+{% include "frontend/postform.html" %}
+{% for op in threads %}
+<div id="{{op.posthash}}" class="thread">
+  <div class="post op">
+    <div class="post-header">
+      <div class="post-reply"><a href="{{op.get_absolute_url}}">[reply]</a></div>
+      <div class="post-cite"><a onclick="board_citepost('{{op.posthash}}')" href="#{{op.posthash}}">&gt;&gt;{{op.shorthash}}</a></div>
+      <div class="post-info">
+        <div class="post-name">{{op.name}}</div>
+        <div class="post-subject">{{op.subject}}</div>
+        <div class="post-date">{{op.postdate|date}}</div>
+      </div>
+    </div>
+    <div class="attachments">
+      {% for a in op.attachments.all %}
+      <a target="_blank" href="{{a.source}}"><img class="thumb" src="{{a.thumb}}"></img></a>
+      {% endfor %}
+    </div>
+    <pre class="postbody">{{op.message|truncate|memepost}}</pre>
+  </div>
+  {% for reply in op.get_board_replies %}
+  <div class="post reply" id="{{reply.posthash}}">
+    <div class="post-header">
+      <div class="post-reply"><a href="{{reply.get_absolute_url}}">[reply]</a></div>
+      <div class="post-cite"><a onclick="board_citepost('{{reply.posthash}}')" href="#{{reply.posthash}}">&gt;&gt;{{reply.shorthash}}</a></div>
+      <div class="post-info">
+        <div class="post-name">{{reply.name}}</div>
+        <div class="post-subject">{{reply.subject}}</div>
+        <div class="post-date">{{reply.postdate|date}}</div>
+      </div>
+    </div>
+    <div class="attachments">
+      {% for a in reply.attachments.all %}
+      <a target="_blank" href="{{a.source}}"><img class="thumb" src="{{a.thumb}}"></img></a>
+      {% endfor %}
+    </div>
+    <pre class="postbody">{{reply.message|truncate|memepost}}</pre>
+  </div>
+  {% endfor %}
+</div>
+<hr />
+{% endfor %}
+
+<div class="paginator">
+  {% if prevpage %}
+  <span class="paginator_item"><a href="{{prevpage}}">prev</a></span>
+  {% endif %}
+  {% if nextpage %}
+  <span class="paginator_item"><a href="{{nextpage}}">next</a></span>
+  {% endif %}
+</div>
+{% endblock %}

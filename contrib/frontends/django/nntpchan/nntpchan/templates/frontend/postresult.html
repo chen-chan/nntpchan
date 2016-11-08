@@ -1,0 +1,14 @@
+{% extends "frontend/base.html" %}
+{% block head %}
+<meta http-equiv="refresh" content="2; {{refresh_url}}"></meta>
+{% endblock %}
+
+{% block content %}
+
+{% if error %}
+<pre class="error"> failed to post: {{error}} </pre>
+{% else %}
+<pre class="posted"> posted </pre>
+{% endif %}
+
+{% endblock %}
