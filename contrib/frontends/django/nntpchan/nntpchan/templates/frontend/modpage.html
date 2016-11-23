@@ -1,0 +1,17 @@
+{% extends "frontend/base.html" %}
+{% block content %}
+<form method="POST">
+	{% csrf_token %}
+	<input type="hidden" name="action" value="logout"></input>
+	<input type="submit" value="logout"></input>
+</form>
+<form method="POST">
+	{% csrf_token %}
+	<input type="hidden" name="action" value="delete"></input>
+	<label for="bulk-delete"> bulk delete</label>
+	<textarea name="posts"></textarea>
+	<input type="submit" value="delete"></input>
+</form>
+
+
+{% endblock %}
