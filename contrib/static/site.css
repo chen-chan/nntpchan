@@ -34,6 +34,10 @@ section {
     box-shadow: 0 0 10px rgba(0,0,0,0.55);
 }
 
+.shadow-box {
+        background-color: #D6DAF0;
+}
+
 .hover > div > .post , .notfound-hover {
     background-color: #D6DAF0;
     box-shadow: 0 0 10px rgba(0,0,0,0.55);
@@ -92,6 +96,7 @@ textarea {
 .post_body > pre {
     font-size: 10pt;
     font-weight: unset;
+    word-break: break-word;
 }
 
 pre {

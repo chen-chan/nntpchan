@@ -32,8 +32,11 @@ function nntpchan_submit_censor(form, regular_url) {
     var result = document.getElementById("nntpchan_censor_result");
 
     var show_result = function(msg) {
-        result.innerHTML = msg;
-    }
+        while(result.children.length > 0) {
+            result.children[0].remove();
+        }
+        result.appendChild(document.createTextNode(msg));
+    };
 
     var handle_result = function(j) {
         var err = j.error;
@@ -44,14 +47,16 @@ function nntpchan_submit_censor(form, regular_url) {
         var msgid = j.message_id;
         if(msgid) {
             show_result("submitted report as "+msgid);
+        } else {
+            show_result("post failed, bad captcha?");
         }
-    }
+    };
 
     // build url to ctl
     var parts = regular_url.split('/');
     parts[parts.length-1] = 'ctl';
     var url = parts.join('/');
-    url += '?t=json';
+    url += '/json';
     console.log(url);
     var captcha = form.captcha.value;
     if(!captcha) {
@@ -88,6 +93,3 @@ function nntpchan_submit_censor(form, regular_url) {
     nntpchan_apicall(url, handle_result, null, "POST", formdata);
 }
 
-onready(function() {
-    
-});
