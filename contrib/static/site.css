@@ -646,6 +646,33 @@ th > label {
 }
 
 .explode {
-        animation: expl 0.5s infinite;
+    animation: expl 0.5s infinite;
+    text-align: center;
 }
 
+.code {
+        font-family: monospace;
+        font-size: smaller;
+        background-color: #313131;
+        color: #fb9f26;
+        border-radius: 5px;
+        padding: 10px;
+}
+
+
+.nazi {
+    padding: 10px;
+}
+
+
+@keyframes flash {
+    0% { opacity: 1;}
+    49% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+.flashy {
+    animation: flash 1s infinite;
+    animation-timing-function: linear;
+}
