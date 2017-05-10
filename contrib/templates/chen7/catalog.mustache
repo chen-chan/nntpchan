@@ -1,0 +1,9 @@
+<!doctype html><meta charset="utf-8"><meta name="viewport" content="initial-scale=1">
+<style>body{font-family:monospace;overflow-wrap:break-word}.head,.postedon{opacity:0.5}pre{margin:0;padding:0;white-space:pre-wrap}.memearrows,.backlink{color:#360}img{max-height:4em}</style>
+<title>{{#i18n.Translations}}{{catalog_title}}{{/i18n.Translations}} {{board.Name}}</title>
+{{{board.Navbar}}}<hr>
+{{#board.Threads}}
+{{#i18n.Translations}}{{replies_short_label}}{{/i18n.Translations}}: {{ReplyCount}} {{#i18n.Translations}}{{pictures_short_label}}{{/i18n.Translations}}: {{Page}} {{OP.Subject}}{{{OP.RenderBody}}}
+<br><a class="linkThumb" href="{{OP.PostURL}}"><img src="{{OP.RepresentativeThumb}}" alt="OP thumb"></a>
+<br><hr>{{/board.Threads}}
+{{{board.Navbar}}}

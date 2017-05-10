@@ -1,0 +1,12 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1">
+<title>{{#i18n.Translations}}{{overboard_title}}{{/i18n.Translations}}</title>
+<style>body{font-family:monospace;overflow-wrap:break-word}.head,.postedon{opacity:0.5}pre{margin:0;padding:0;white-space:pre-wrap}.memearrows,.backlink{color:#360}</style>
+{{{navbar}}}
+{{#threads}}
+<hr><br>
+<div class="postedon">{{#i18n.Translations}}{{posted_on_label}}{{/i18n.Translations}} <a href="{{{BoardURL}}}">{{OP.Board}}</a></div>
+{{{OP.Truncate.RenderPost}}}{{#Truncate.Replies}}{{{Truncate.RenderPost}}}{{/Truncate.Replies}}
+{{/threads}}
+<hr>{{{navbar}}}

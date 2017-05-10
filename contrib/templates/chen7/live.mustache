@@ -1,0 +1,37 @@
+{{!
+  live.mustache -- live ui 
+  template parameters:
+  - prefix ( site prefix )
+}}
+<!doctype html>
+<meta charset="utf-8">
+
+
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1">
+<link rel="stylesheet" href="/static/chen6.css">
+<title>live {{#i18n.Translations}}{{overboard_title}}{{/i18n.Translations}}</title>
+{{{navbar}}}
+
+    <script type="text/javascript" src="{{prefix}}static/nntpchan.js"></script>
+  </head>
+  <body>
+    <center>
+      <div id="nntpchan_banner">
+      </div>
+    </center>
+    <!-- begin navbar -->
+    {{{navbar}}}
+    <!-- end navbar -->
+    <div id="livechan">
+    </div>
+    
+<script>
+  var prefix = "{{prefix}}";
+  init(prefix);
+  e = document.getElementById("livechan");
+  if (e) {
+    inject_livechan_widget(prefix, e);
+  }
+</script>

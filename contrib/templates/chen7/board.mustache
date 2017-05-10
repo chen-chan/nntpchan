@@ -1,0 +1,29 @@
+{{!
+ board.mustache, displays the contents of page N of the board
+
+ template parameters:
+ - board ( the model of the current page )
+ - page ( the page number of the current page )
+ 
+ board has the properties:
+  - Prefix ( absolute path like //site.tld/ or /path/ )
+  - Board ( the name of the board )
+  - Navbar ( a function that renders the navbar, should not be escaped )
+  - Threads ( a list of Thread Models with the last few replies )
+}}
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1">
+<style>body{font-family:monospace;overflow-wrap:break-word}.head,.postedon{opacity:0.5}pre{margin:0;padding:0;white-space:pre-wrap}.memearrows,.backlink{color:#360}</style>
+<title>{{board.Board}}</title>
+{{{board.Navbar}}} <a href="{{board.Prefix}}catalog-{{board.Name}}.html">{{#i18n.Translations}}{{catalog_label}}{{/i18n.Translations}}</a>
+<hr>
+{{{form}}}
+{{#board.Threads}}
+  <div class="thread">
+    <hr><br>
+    {{{OP.Truncate.RenderPost}}}{{#Truncate.Replies}}{{{Truncate.RenderPost}}}{{/Truncate.Replies}}
+  </div>
+{{/board.Threads}}
+<hr>
+{{{board.Navbar}}} <a href="{{board.Prefix}}catalog-{{board.Name}}.html">{{#i18n.Translations}}{{catalog_label}}{{/i18n.Translations}}</a>
