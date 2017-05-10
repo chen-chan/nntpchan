@@ -18,7 +18,8 @@
      data-origin="clearnet"
      {{/post.IsClearnet}}
      data-posturl="{{post.PostURL}}">
-  <legend class="postheader">
+    <div class="postheader-outer">
+    <span class="postheader">
     <span class="origin">
   {{#post.IsI2P}}
     <img src="{{post.Prefix}}static/i2p.png" title="{{#i18n.Translations}}{{from_i2p}}{{/i18n.Translations}}" />
@@ -30,10 +31,14 @@
     <img src="{{post.Prefix}}static/clearnet.png" title="{{#i18n.Translations}}{{from_clearnet}}{{/i18n.Translations}}" />
   {{/post.IsClearnet}}
     </span>
-    <div class="postreply">
+    <span data-subject="{{post.Subject}}" class="subject">{{post.Subject}}</span>
+    <span class="name">{{post.Name}}</span><span class="tripcode">{{{post.Pubkey}}}</span>
+    <time datetime="{{post.DateRFC}}">{{post.Date}}</time>
+    </span>
+    <span class="postreply">
       <a class="postno" onclick="nntpchan_reply(this, '{{post.ShortHash}}');" root="{{post.Reference}}" boardname="{{post.Board}}">&gt;&gt;{{post.ShortHash}}</a>
       <a href="{{post.PostURL}}">[{{#i18n.Translations}}{{reply_label}}{{/i18n.Translations}}]</a>
-      <div class="postreport">
+      <span class="postreport">
           <label for="report_{{post.PostHash}}">[x]</label>
           <input type="checkbox" id="report_{{post.PostHash}}">
           <div style="display: none;" onclick="nntpchan_report('{{post.MessageID}}', '{{post.PostHash}}', '{{post.Reference}}', '{{post.ReferenceHash}}')">
@@ -41,21 +46,10 @@
                   [delete]
               </div>
           </div>
-      </div>
+         </input>
+      </span>
+    </span>
     </div>
-    <div>
-      Subject: <span class="subject">{{post.Subject}}</span>
-    </div>
-    <div>
-      Name: <span class="name">{{post.Name}}</span><span class="tripcode">{{{post.Pubkey}}}</span>
-    </div>
-    <div>
-      MessageID: <span class="msgid">{{post.MessageID}}</span>
-    </div>
-    <div>
-      Date: <time datetime="{{post.DateRFC}}">{{post.Date}}</time>
-    </div>
-  </legend>
   <hr>
   <div class="attachments">
   {{#post.Attachments}}

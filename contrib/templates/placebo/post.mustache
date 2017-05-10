@@ -1,0 +1,36 @@
+<div id="{{post.PostHash}}"
+     {{#post.OP}}
+     class="messageroot post"
+     {{/post.OP}}
+     {{^post.OP}}
+     class="message post"
+     {{/post.OP}}
+     data-frontend="{{post.Frontend}}"
+     data-newsgroup="{{post.Board}}"
+     data-msgid="{{post.MessageID}}"
+     data-msgidhash="{{post.PostHash}}"
+     data-rootmsgid="{{post.Reference}}"
+     data-rootmsgidhash="{{post.ReferenceHash}}"
+     {{#post.Sage}}
+     data-sage="1"
+     {{/post.Sage}}
+     {{#post.IsI2P}}
+     data-origin="i2p"
+     {{/post.IsI2P}}
+     {{#post.IsTor}}
+     data-origin="tor"
+     {{/post.IsTor}}
+     {{#post.IsClearnet}}
+     data-origin="clearnet"
+     {{/post.IsClearnet}}
+     data-posturl="{{post.PostURL}}">
+    {{#post.Attachments}}
+    <a href="{{Source}}" class="image_link" target="_blank" title="{{Filename}}"><img src="{{Thumbnail}}" class="image" /></a>
+    {{/post.Attachments}}
+    <a name="{{post.PostHash}}"></a><span class="topicline"><b data-subject="{{post.Subject}}" class="subject">{{post.Subject}}</b> {{post.Name}} <span class="published">{{post.Date}}</span>  <a href="{{post.PostURL}}">&#8470;</a>
+    <a href="#" onclick="return quickreply('{{post.ShortHash}}', '{{post.PostHash}}', '{{post.PostURL}}');"> {{post.ShortHash}}</a>
+    </span>
+    <br /><br />
+    <span class="message_span">{{{post.RenderBody}}}</span>
+    <br style="clear: both;" />
+</div>

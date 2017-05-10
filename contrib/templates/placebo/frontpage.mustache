@@ -1,0 +1,39 @@
+{{!
+  frontpage.mustache -- template for index.html
+  template parameters:
+  - boardgraph ( markup of boardPageRows instance, see srnd/model.go )
+  - postgraph ( markup of postsGraph instance , see srnd/model.go )
+  - overview ( markup of overviewModel instance , see srnd/model.go )
+  - totalposts ( the number of total posts we have ever seen )
+  - frontend ( the name of the frontend )
+  - prefix ( the site's prefix )
+}}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+          "http://www.w3.org/TR/html4/strict.dtd">
+<html prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+  <head>
+      <link rel="stylesheet" href="{{prefix}}static/krane.css" />
+      <link rel="stylesheet" href="{{prefix}}static/user.css" />
+      <meta property="og:site_name" content="changolia" />
+      <meta property="og:type" content="website"/>
+      <meta property="og:title" content="changolia"/>
+      <meta property="og:description" content="Most of the rest of the wild west"/>
+      <meta property="og:url" content="{{prefix}}"/>
+      <meta property="og:image"
+            content="{{prefix}}static/changolia-logo.png"/>
+    <title> CHANGOLIA </title>
+  </head>
+  <body>
+      <center>
+          <a href="{{prefix}}o/"><img id="logo" src="{{prefix}}static/changolia-logo.png" /><h1>Enter</h1></a>
+          <a href="{{prefix}}boards.html"><h2>Board List</h2></a>
+          <a href="{{prefix}}static/faq.html">FAQ</a>
+      </center>
+    <hr/>
+    <footer>
+      <p class="legal">All posts on this site are the responsibility of the individual poster and not the administration, pursuant to 47 U.S.C. § 230.</p>
+      <p class="legal">To make a DMCA request or report illegal content, please contact the administration</p>
+    </footer>
+  </body>
+</html>

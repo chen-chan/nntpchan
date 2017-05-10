@@ -1,5 +1,6 @@
 *.o
+*.a
 nntpd
-nntpchan-tool
-test
+tools/authtool
+tools/testtool
 .gdb_history
