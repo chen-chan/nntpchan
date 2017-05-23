@@ -1,0 +1,55 @@
+/*
+.header{color:#000;background:#ccc}
+.memearrows{color:#680}
+.thread{margin:1.5em 0 1.5em 0;border: 1ch solid #ccc;background:#eee}
+*/
+/*
+.header{color:#800;background:#fdb}
+.memearrows{color:#8a0}
+.thread{margin:2em 0 2em 0;border: 1px solid #800;background:#fff}
+a{color:#800}
+html{background:#ffe;color:#800;font-family:monospace;overflow-wrap:break-word}
+*/
+/*
+.header{background:#666}
+.thread{margin: 1em 0 1em 0;background:#222;border: 1px solid #666}
+.memearrows{color:#9d8}
+html{background:#000;color:#fff}
+a{color:#fff}
+*/
+/*
+.header{color:#000;background:#080}
+.thread{margin: 1em 0 1em 0;border: 1px solid #080;background:#020}
+.memearrows{color:#0b0}
+html{background:#010;color:#bf0}
+a{color:#bf0}
+*/
+/*
+.header{color:#210;background:#c50}
+.thread{margin: 2em 0 2em 0;background:#420}
+.memearows{color:#f50}
+body{background:#210;color:#fa0}
+a{color:#fa0}
+.header a{color:#210}
+*/
+
+body{background:#222;color:#fff;font-family:monospace;overflow-wrap:break-word;margin:0}
+.thread{background:#fff;color:#000;margin:1em 1ch 1em 1ch}
+.thread a{color:#000}
+a {color:#fff}
+.memearrows{color:#680}
+.header{background:#ddd}
+.body,.attachments{padding: 0 0 0 1ch} 
+pre{margin:0}
+table{border-collapse:collapse}
+td,th{border:1px solid gray}
+.attachment{max-height:8em;max-width:32ch;border:solid 1px #888}
+pre{white-space:pre-wrap}
+
+.boardlist{padding:1ch}
+.reply form{padding:1ch 1ch 0 1ch}
+.reply *{box-sizing: border-box}
+.reply textarea{width:100%}
+.reply img[alt="captcha"]{max-height:8em}
+
+.catalog>*{display:inline-block}

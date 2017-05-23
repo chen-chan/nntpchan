@@ -2,11 +2,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="initial-scale=1">
 <title>{{thread.OP.Subject}}</title>
-<style>body{font-family:monospace;overflow-wrap:break-word}.head,.postedon{opacity:0.5}pre{margin:0;padding:0;white-space:pre-wrap}.memearrows,.backlink{color:#360}</style>
+<link rel="stylesheet" href="{{prefix}}static/chen7.css">
 {{{thread.Navbar}}} <a href="{{thread.Prefix}}catalog-{{thread.Board}}.html">catalog</a>
-<hr>
-{{{thread.OP.RenderPost}}}{{#thread.Replies}}{{{RenderPost}}}{{/thread.Replies}}
-<br>
+<div class="thread">
+  {{{thread.OP.RenderPost}}}{{#thread.Replies}}{{{RenderPost}}}{{/thread.Replies}}
+</div>
 {{{form}}}
-<hr>
 {{{thread.Navbar}}} <a href="{{thread.Prefix}}catalog-{{thread.Board}}.html">catalog</a>

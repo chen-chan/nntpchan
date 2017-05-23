@@ -8,12 +8,16 @@
  - files ( bool, do we allow attachments ? )
  - csrf ( csrf token )
  }}
-<form action="{{post_url}}" enctype="multipart/form-data" name="post" method="post">
-  {{{csrf}}}
-  <input type="hidden" name="reference" value="{{reference}}" id="postform_reference">
-  <textarea id="postform_message" name="message" cols="80" rows="8"></textarea><br>
-  subject:<input type="text" name="subject" value=""> file:<input class="postform_attachment" id="postform_attachments" type="file" name="attachment_uploaded" multiple><br>
-  namefag:<input type="text" name="name" value=""> dubs:<input type="checkbox" name="dubs"><br>
-  captcha:<input type="text" name="captcha" autocomplete="off"> <input type="submit" value="{{button}}" class="button" id="postform_submit"><br>
-  <a href="{{prefix}}captcha/img" target="_blank"><img id="captcha_img" src="{{prefix}}captcha/img" alt="captcha"></a>
-</form>
+<div class="thread reply">
+  <form action="{{post_url}}" enctype="multipart/form-data" name="post" method="post">
+    {{{csrf}}}
+    <input type="hidden" name="reference" value="{{reference}}" id="postform_reference">
+    <textarea "id="postform_message" name="message" placeholder="text"></textarea><br>
+    <input type="text" name="subject" value="" placeholder="subject">
+    <input type="text" name="name" value="" placeholder="name">
+    <input type="text" name="captcha" autocomplete="off" placeholder="captcha"><br>
+    <input class="postform_attachment" id="postform_attachments" type="file" name="attachment_uploaded" multiple>
+    <input type="submit" value="{{button}}" class="button" id="postform_submit"><br>
+    <a href="{{prefix}}captcha/img" target="_blank"><img id="captcha_img" src="{{prefix}}captcha/img" alt="captcha"></a>
+  </form>
+</div>

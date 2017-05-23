@@ -1,15 +1,15 @@
-<div class="header" id="{{post.PostHash}}">
-  {{post.ShortHash}}
-  <b>{{post.Subject}}</b>
-  {{post.DateRFC}}
-  {{post.Name}}
-  {{{post.Pubkey}}}
-  <a href="{{post.PostURL}}">{{post.MessageID}}</a>
+<div class="post">
+  <div class="header" id="{{post.PostHash}}">
+    {{post.ShortHash}}
+    <b>{{post.Subject}}</b>
+    {{post.DateRFC}}
+    {{post.Name}}
+    {{{post.Pubkey}}}
+    <a href="{{post.PostURL}}">{{post.MessageID}}</a>
+  </div>
+  <pre class="body">{{{!--{{post.RenderBodyPre}}--}}}{{{post.RenderBody}}}</pre>
+  <div class="attachments">
+    {{#post.Attachments}}<a href="{{Source}}" title="{{Filename}}" target="_blank"><img class="attachment" src="{{Thumbnail}}" alt="{{Filename}}"></a>{{/post.Attachments}}
+  </div>
+  {{{!--{{#post.Attachments}}<a href="{{Source}}" title="{{Filename}}" target="_blank">attachment</a>[<a href="{{Source}}" download="{{Filename}}">dl</a>]: {{Filename}}<br>{{/post.Attachments}}--}}}
 </div>
-{{post.RenderBodyPre}}
-{{{!--{{#post.Attachments}}<a href="{{Source}}" title="{{Filename}}" target="_blank">attachment</a>[<a href="{{Source}}" download="{{Filename}}">dl</a>]: {{Filename}}<br>{{/post.Attachments}}--}}}
-{{#post.Attachments}}
-  <a href="{{Source}}" title="{{Filename}}" target="_blank">
-    <img src="{{Thumbnail}}" alt="{{Filename}}">
-  </a>
-{{/post.Attachments}}
