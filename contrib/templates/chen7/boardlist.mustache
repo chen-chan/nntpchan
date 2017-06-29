@@ -3,7 +3,9 @@
 <meta name="viewport" content="initial-scale=1">
 <link rel="stylesheet" href="{{prefix}}static/chen7.css">
 <title>{{frontend}} {{#i18n.Translations}}{{board_list_title}}{{/i18n.Translations}}</title>
-{{{navbar}}}
+<div class="navbar">
+{{{navbar}}}{{{!-- navbar not supported apparently--}}} board list <a href="{{prefix}}">front page</a> <a href="{{prefix}}o/">overboard</a>
+</div>
 <div class="thread boardlist">
 <table><tr><th>{{#i18n.Translations}}{{board_label}}{{/i18n.Translations}}<th>{{#i18n.Translations}}{{pph_label}}{{/i18n.Translations}}<th>{{#i18n.Translations}}{{ppd_label}}{{/i18n.Translations}}<th>{{#i18n.Translations}}{{total}}{{/i18n.Translations}}{{#graph}}<tr><td><a href="{{prefix}}b/{{Board}}/">{{Board}}</a><td>{{Hour}}<td>{{Day}}<td>{{All}}{{/graph}}</table>
 </div>

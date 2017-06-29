@@ -3,9 +3,11 @@
 <meta name="viewport" content="initial-scale=1">
 <title>{{thread.OP.Subject}}</title>
 <link rel="stylesheet" href="{{prefix}}static/chen7.css">
+<div class="navbar">
 {{{thread.Navbar}}} <a href="{{thread.Prefix}}catalog-{{thread.Board}}.html">catalog</a>
+</div>
 <div class="thread">
   {{{thread.OP.RenderPost}}}{{#thread.Replies}}{{{RenderPost}}}{{/thread.Replies}}
 </div>
 {{{form}}}
-{{{thread.Navbar}}} <a href="{{thread.Prefix}}catalog-{{thread.Board}}.html">catalog</a>
+

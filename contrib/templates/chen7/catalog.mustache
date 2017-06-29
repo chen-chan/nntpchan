@@ -1,12 +1,12 @@
 <!doctype html><meta charset="utf-8"><meta name="viewport" content="initial-scale=1">
 <link rel="stylesheet" href="{{prefix}}static/chen7.css">
 <title>{{#i18n.Translations}}{{catalog_title}}{{/i18n.Translations}} {{board.Name}}</title>
-{{{board.Navbar}}}<hr>
+<div class="navbar">{{{board.Navbar}}}</div>
 <div class="catalog">
 {{#board.Threads}}
 <div class="thread">
   <div class="header">
-    {{#i18n.Translations}}{{replies_short_label}}{{/i18n.Translations}}: {{ReplyCount}} {{#i18n.Translations}}{{pictures_short_label}}{{/i18n.Translations}}: {{Page}} {{OP.Subject}}
+    {{#i18n.Translations}}{{replies_short_label}}{{/i18n.Translations}}: {{ReplyCount}} {{#i18n.Translations}}{{pictures_short_label}}{{/i18n.Translations}}: {{Page}} <b>{{OP.Subject}}</b>
   </div>
   <pre class="body">{{{OP.RenderBody}}}</pre>
   <div class="attachments">
@@ -15,4 +15,4 @@
 </div>
 {{/board.Threads}}
 </div>
-{{{board.Navbar}}}
+<div class="navbar">{{{board.Navbar}}}</div>
