@@ -3,7 +3,10 @@
 <meta name="viewport" content="initial-scale=1">
 <title>{{#i18n.Translations}}{{overboard_title}}{{/i18n.Translations}}</title>
 <link rel="stylesheet" href="{{prefix}}static/chen7.css">
-<div class="navbar">{{{navbar}}}</div>
+<div class="navbar">{{{navbar}}}
+  {{#prev}}<a href="{{prefix}}o/{{no}}/">previous</a>{{/prev}}
+  {{#next}}<a href="{{prefix}}o/{{no}}/">next</a>{{/next}}
+</div>
 <div class="threads">
 {{#threads}}
   <div class="thread">
@@ -17,4 +20,8 @@
   </div>
 {{/threads}}
 </div>
-<div class="navbar">{{{navbar}}}</div>
+<div class="navbar">{{{navbar}}}
+  {{#prev}}<a href="{{prefix}}o/{{no}}/">previous</a>{{/prev}}
+  {{#next}}<a href="{{prefix}}o/{{no}}/">next</a>{{/next}}
+</div>
+
